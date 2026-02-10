@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP-BeachBar", "ASP-BeachBar\ASP-BeachBar.csproj", "{0F84C881-DB33-46EC-B57F-8496B562BDBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F84C881-DB33-46EC-B57F-8496B562BDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F84C881-DB33-46EC-B57F-8496B562BDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F84C881-DB33-46EC-B57F-8496B562BDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F84C881-DB33-46EC-B57F-8496B562BDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {417F74FA-BC97-4216-B4E2-74D6290F9D8D}
+	EndGlobalSection
+EndGlobal
