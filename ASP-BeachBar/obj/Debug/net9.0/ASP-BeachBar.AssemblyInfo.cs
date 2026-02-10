@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ASP-BeachBar")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1713d7232369588f47b1703d1cd1bcfce4228623")]
 [assembly: System.Reflection.AssemblyProductAttribute("ASP-BeachBar")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ASP-BeachBar")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,13 +8,13 @@
 
         public string ImageUrl { get; set; }
 
-        public bool isAlcoholic { get; set; }
+        public bool IsAlcoholic { get; set; }
 
         public string CategoryId { get; set; }
 
-        public double weight { get; set; }
+        public double Weight { get; set; }
 
-        public double price { get; set; }
+        public double Price { get; set; }
 
         public DateTime RegisterOn { get; set; }
     }
