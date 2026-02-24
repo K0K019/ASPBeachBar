@@ -16,5 +16,7 @@ namespace ASP_BeachBar.Data
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Reservation> Reservations { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }

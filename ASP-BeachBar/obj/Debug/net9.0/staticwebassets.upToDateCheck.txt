@@ -61,8 +61,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\css\site.css
-C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\favicon.ico
 C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\js\site.js
 C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -123,3 +121,5 @@ C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\lib\jqu
 C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\favicon.ico
+C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\wwwroot\css\site.css

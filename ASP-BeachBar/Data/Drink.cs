@@ -10,7 +10,9 @@
 
         public bool IsAlcoholic { get; set; }
 
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
+
+        public Category Categories { get; set; }
 
         public double Weight { get; set; }
 

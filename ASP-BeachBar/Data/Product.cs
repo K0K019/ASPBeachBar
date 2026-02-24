@@ -6,7 +6,9 @@
 
         public string Name { get; set; }
 
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
+
+        public Category Categories { get; set; }
 
         public string ImageUrl { get; set; }
 
