@@ -13,25 +13,35 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Име на продукта
+@* 
+                @Html.DisplayNameFor(model => model.Name) *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Categories)
+                Категория
+
+               @*  @Html.DisplayNameFor(model => model.Categories) *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+
+                Снимка на продукта
+                @* @Html.DisplayNameFor(model => model.ImageUrl) *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                Описание
+               @*  @Html.DisplayNameFor(model => model.Description) *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Weight)
+                Грамаж
+                @* @Html.DisplayNameFor(model => model.Weight) *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                Цена
+                @* @Html.DisplayNameFor(model => model.Price) *@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegisterOn)
+                Дата на регистрация
+                @* @Html.DisplayNameFor(model => model.RegisterOn) *@
             </th>
             <th></th>
         </tr>
@@ -43,10 +53,10 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Categories.Id)
+                @Html.DisplayFor(modelItem => item.Categories.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                <img src="@item.ImageUrl" alt="@item.Name" width="100px" height="145px"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -55,7 +65,7 @@
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                    @Html.DisplayFor(modelItem => item.Price)€
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RegisterOn)

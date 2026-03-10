@@ -1,4 +1,6 @@
-﻿namespace ASP_BeachBar.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ASP_BeachBar.Data
 {
     public class Product
     {
@@ -16,7 +18,9 @@
 
         public double Weight { get; set; }
 
+        [Column(TypeName = "decimal(10,2)")]
         public double Price { get; set; }
+
 
         public DateTime RegisterOn { get; set; }
 
