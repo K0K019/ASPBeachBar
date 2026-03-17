@@ -1,7 +1,12 @@
-﻿namespace ASP_BeachBar.Data
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace ASP_BeachBar.Data
 {
+    
     public class Reservation
     {
+       
+
         public int Id { get; set; }
         public string ClientId { get; set; }
         public Client Clients { get; set; }

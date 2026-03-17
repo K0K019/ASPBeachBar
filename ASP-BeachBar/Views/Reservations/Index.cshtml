@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ASP_BeachBar.Data.Event>
+﻿@model IEnumerable<ASP_BeachBar.Data.Reservation>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,19 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Clients)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
+                @Html.DisplayNameFor(model => model.Events)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Count)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateReservation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegisterOn)
+                @Html.DisplayNameFor(model => model.ReservationDate)
             </th>
             <th></th>
         </tr>
@@ -34,19 +31,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Clients.Id)
             </td>
             <td>
-                    <img src="@item.ImageUrl" alt="@item.Name" width="100px" height="145px" />
+                @Html.DisplayFor(modelItem => item.Events.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                @Html.DisplayFor(modelItem => item.Count)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateReservation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisterOn)
+                @Html.DisplayFor(modelItem => item.ReservationDate)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
