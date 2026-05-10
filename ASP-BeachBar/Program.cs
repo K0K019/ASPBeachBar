@@ -7,7 +7,7 @@ namespace ASP_BeachBar
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -20,25 +20,16 @@ namespace ASP_BeachBar
             builder.Services.AddDefaultIdentity<Client>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
-            builder.Services.AddControllersWithViews();
+                .AddDefaultTokenProviders();
+
+            builder.Services.AddControllersWithViews(options =>
+                options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
             builder.Services.AddRazorPages();
-            
-            builder.Services.AddControllers(
-                options =>
-                
-                  options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
-                
-            
+
             var app = builder.Build();
 
-          
-
-            app.PrepareDataBase().Wait();
-
-            
-
+            await app.PrepareDataBase();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -55,6 +46,7 @@ namespace ASP_BeachBar
             app.UseHttpsRedirection();
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();

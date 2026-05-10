@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASP_BeachBar.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASP_BeachBar.Controllers
 {
@@ -21,7 +22,17 @@ namespace ASP_BeachBar.Controllers
         // GET: Events
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Events.ToListAsync());
+            var events = _context.Events
+                .AsNoTracking()
+                .OrderBy(e => e.DateReservation)
+                .AsQueryable();
+
+            if (!User.IsInRole("Admin"))
+            {
+                events = events.Where(e => e.DateReservation >= DateTime.Now);
+            }
+
+            return View(await events.ToListAsync());
         }
 
         // GET: Events/Details/5
@@ -32,8 +43,13 @@ namespace ASP_BeachBar.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var events = _context.Events.AsNoTracking().AsQueryable();
+            if (!User.IsInRole("Admin"))
+            {
+                events = events.Where(e => e.DateReservation >= DateTime.Now);
+            }
+
+            var @event = await events.FirstOrDefaultAsync(m => m.Id == id);
             if (@event == null)
             {
                 return NotFound();
@@ -43,18 +59,23 @@ namespace ASP_BeachBar.Controllers
         }
 
         // GET: Events/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Events/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ImageUrl,Description,DateReservation,RegisterOn")] Event @event)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Create([Bind("Id,Name,ImageUrl,Description,DateReservation")] Event @event)
         {
+            @event.RegisterOn = DateTime.Now;
+            if (@event.DateReservation <= DateTime.Now)
+            {
+                ModelState.AddModelError(nameof(@event.DateReservation), "Събитието трябва да бъде в бъдещето.");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(@event);
@@ -65,6 +86,7 @@ namespace ASP_BeachBar.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,23 +102,36 @@ namespace ASP_BeachBar.Controllers
             return View(@event);
         }
 
-        // POST: Events/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImageUrl,Description,DateReservation,RegisterOn")] Event @event)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImageUrl,Description,DateReservation")] Event @event)
         {
             if (id != @event.Id)
             {
                 return NotFound();
             }
 
+            if (@event.DateReservation <= DateTime.Now)
+            {
+                ModelState.AddModelError(nameof(@event.DateReservation), "Събитието трябва да бъде в бъдещето.");
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(@event);
+                    var existingEvent = await _context.Events.FirstOrDefaultAsync(e => e.Id == id);
+                    if (existingEvent == null)
+                    {
+                        return NotFound();
+                    }
+
+                    existingEvent.Name = @event.Name;
+                    existingEvent.ImageUrl = @event.ImageUrl;
+                    existingEvent.Description = @event.Description;
+                    existingEvent.DateReservation = @event.DateReservation;
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -116,6 +151,7 @@ namespace ASP_BeachBar.Controllers
         }
 
         // GET: Events/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,6 +160,7 @@ namespace ASP_BeachBar.Controllers
             }
 
             var @event = await _context.Events
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (@event == null)
             {
@@ -136,6 +173,7 @@ namespace ASP_BeachBar.Controllers
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var @event = await _context.Events.FindAsync(id);

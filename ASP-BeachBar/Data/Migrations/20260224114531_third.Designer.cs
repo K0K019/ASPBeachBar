@@ -13,7 +13,7 @@ namespace ASP_BeachBar.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20260224114531_third")]
-    partial class third
+    partial class Third
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

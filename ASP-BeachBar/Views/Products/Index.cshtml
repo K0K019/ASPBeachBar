@@ -1,81 +1,45 @@
-﻿@model IEnumerable<ASP_BeachBar.Data.Product>
+@model IEnumerable<ASP_BeachBar.Data.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Храна";
 }
 
-<h1>Index</h1>
+<div class="section-head">
+    <div>
+        <p class="eyebrow">Меню</p>
+        <h1>Храна за плажа</h1>
+        <p>Леки морски предложения, свежи плодове и неща за споделяне между две влизания във водата.</p>
+    </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-beach" asp-action="Create">Добави продукт</a>
+    }
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Име на продукта
-@* 
-                @Html.DisplayNameFor(model => model.Name) *@
-            </th>
-            <th>
-                Категория
-
-               @*  @Html.DisplayNameFor(model => model.Categories) *@
-            </th>
-            <th>
-
-                Снимка на продукта
-                @* @Html.DisplayNameFor(model => model.ImageUrl) *@
-            </th>
-            <th>
-                Описание
-               @*  @Html.DisplayNameFor(model => model.Description) *@
-            </th>
-            <th>
-                Грамаж
-                @* @Html.DisplayNameFor(model => model.Weight) *@
-            </th>
-            <th>
-                Цена
-                @* @Html.DisplayNameFor(model => model.Price) *@
-            </th>
-            <th>
-                Дата на регистрация
-                @* @Html.DisplayNameFor(model => model.RegisterOn) *@
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categories.Name)
-            </td>
-            <td>
-                <img src="@item.ImageUrl" alt="@item.Name" width="100px" height="145px"/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Price)€
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegisterOn)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+<div class="menu-grid">
+@foreach (var item in Model)
+{
+    <article class="beach-card">
+        <img class="card-img" src="@item.ImageUrl" alt="@item.Name" />
+        <div class="beach-card-body">
+            <div class="card-title-row">
+                <h2>@item.Name</h2>
+                <span class="price-pill">@item.Price.ToString("0.00") €</span>
+            </div>
+            <p class="muted mt-2 mb-2">@item.Description</p>
+            <div class="d-flex flex-wrap gap-2">
+                <span class="meta-pill">@(item.Categories?.Name ?? "Меню")</span>
+                <span class="meta-pill">@item.Weight.ToString("0") г</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
+                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                }
+            </div>
+        </div>
+    </article>
 }
-    </tbody>
-</table>
+</div>

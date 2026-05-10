@@ -1,44 +1,32 @@
-﻿@model ASP_BeachBar.Data.Reservation
+@model ASP_BeachBar.Data.Reservation
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Нова резервация";
 }
 
-<h1>Create</h1>
-
-<h4>Reservation</h4>
-<hr />
+<div class="section-head"><div><p class="eyebrow">Shoreline</p><h1>Нова резервация</h1></div></div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @* <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <select asp-for="ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
-            </div> *@
             <div class="form-group">
-                <label asp-for="EventsId" class="control-label"></label>
-                <select asp-for="EventsId" class ="form-control" asp-items="ViewBag.EventsId"></select>
+                <label asp-for="EventsId" class="control-label">Събитие</label>
+                <select asp-for="EventsId" class="form-select" asp-items="ViewBag.EventsId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Count" class="control-label"></label>
+                <label asp-for="Count" class="control-label">Брой места</label>
                 <input asp-for="Count" class="form-control" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
-           @*  <div class="form-group">
-                <label asp-for="ReservationDate" class="control-label"></label>
-                <input asp-for="ReservationDate" class="form-control" />
-                <span asp-validation-for="ReservationDate" class="text-danger"></span>
-            </div> *@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Резервирай" class="btn btn-primary mt-3" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад към резервациите</a>
 </div>
 
 @section Scripts {

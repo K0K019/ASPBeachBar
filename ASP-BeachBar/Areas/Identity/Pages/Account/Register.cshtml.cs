@@ -74,47 +74,41 @@ namespace ASP_BeachBar.Areas.Identity.Pages.Account
             
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Имейл")]
             public string Email { get; set; }
 
 
             [Required]
-            [Display(Name = "UserName")]
+            [Display(Name = "Потребител")]
             public string UserName { get; set; }
 
 
             [Required]
-            [Display(Name = "Name")]
+            [Display(Name = "Име")]
             public string FirstName { get; set; }
 
 
             [Required]
-            [Display(Name = "LastName")]
+            [Display(Name = "Фамилия")]
             public string LastName { get; set; }
 
 
             [Required]
             [Phone]
-            [Display(Name = "Phone")]
+            [Display(Name = "Телефон")]
             public string Phone { get; set; }
 
 
-
             [Required]
-            [Display(Name = "RegisterOn")] 
-            public DateTime DateOn { get; set; } = DateTime.Now;
-
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "{0} трябва да бъде между {2} и {1} символа.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Парола")]
             public string Password { get; set; }
 
             
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Повтори парола")]
+            [Compare("Password", ErrorMessage = "Паролите не съвпадат.")]
             public string ConfirmPassword { get; set; }
         }
 

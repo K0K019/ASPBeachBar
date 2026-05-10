@@ -10,13 +10,13 @@ namespace ASP_BeachBar.Data
         {
 
         }
-        public DbSet<Drink> Drinks { get; set; }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Drink> Drinks { get; set; } = null!;
+        public DbSet<Event> Events { get; set; } = null!;
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Products { get; set; } = null!;
 
-        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Reservation> Reservations { get; set; } = null!;
 
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; } = null!;
     }
 }

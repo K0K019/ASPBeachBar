@@ -1,8 +1,48 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Начало";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero">
+    <div>
+        <p class="eyebrow">Beach bar на първа линия</p>
+        <h1>Shoreline Beach Bar</h1>
+        <p>Свежи коктейли, лека морска храна, залези с DJ сетове и места за приятели, които остават до последната песен.</p>
+        <div class="hero-actions">
+            <a class="btn btn-beach" asp-controller="Products" asp-action="Index">Виж менюто</a>
+            <a class="btn btn-outline-beach" asp-controller="Events" asp-action="Index">Предстоящи събития</a>
+        </div>
+    </div>
+</section>
+
+<section class="mt-5">
+    <div class="section-head">
+        <div>
+            <p class="eyebrow">Лятно настроение</p>
+            <h2>Всичко нужно за ден край морето</h2>
+            <p>Менюто е леко, цветно и удобно за споделяне, а вечерите са запазени за музика, танци и резервации.</p>
+        </div>
+    </div>
+    <div class="feature-grid">
+        <article class="beach-card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Коктейли на плажа" />
+            <div class="beach-card-body">
+                <h3>Коктейли и лимонади</h3>
+                <p class="muted mb-0">Мохито, сангрия, тропически миксове и свежи безалкохолни предложения.</p>
+            </div>
+        </article>
+        <article class="beach-card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Лятна храна" />
+            <div class="beach-card-body">
+                <h3>Храна за споделяне</h3>
+                <p class="muted mb-0">Такоси, брускети, скариди, плодови купи и хрупкави предложения за шезлонга.</p>
+            </div>
+        </article>
+        <article class="beach-card">
+            <img class="card-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80" alt="Парти вечер" />
+            <div class="beach-card-body">
+                <h3>Събития до залез</h3>
+                <p class="muted mb-0">DJ вечери, acoustic sunset sessions и дегустации с резервации онлайн.</p>
+            </div>
+        </article>
+    </div>
+</section>

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ASP_BeachBar.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ASP_BeachBar.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,7 +23,10 @@ namespace ASP_BeachBar.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Categories.ToListAsync());
+            return View(await _context.Categories
+                .AsNoTracking()
+                .OrderBy(c => c.Name)
+                .ToListAsync());
         }
 
         // GET: Categories/Details/5
@@ -33,6 +38,7 @@ namespace ASP_BeachBar.Controllers
             }
 
             var category = await _context.Categories
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {
@@ -48,13 +54,18 @@ namespace ASP_BeachBar.Controllers
             return View();
         }
 
-        // POST: Categories/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name")] Category category)
         {
+            category.Name = category.Name?.Trim() ?? string.Empty;
+            ValidateCategoryName(category.Name);
+
+            if (await _context.Categories.AnyAsync(c => c.Name == category.Name))
+            {
+                ModelState.AddModelError(nameof(category.Name), "Вече има категория с това име.");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(category);
@@ -80,9 +91,6 @@ namespace ASP_BeachBar.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Category category)
@@ -90,6 +98,14 @@ namespace ASP_BeachBar.Controllers
             if (id != category.Id)
             {
                 return NotFound();
+            }
+
+            category.Name = category.Name?.Trim() ?? string.Empty;
+            ValidateCategoryName(category.Name);
+
+            if (await _context.Categories.AnyAsync(c => c.Id != category.Id && c.Name == category.Name))
+            {
+                ModelState.AddModelError(nameof(category.Name), "Вече има категория с това име.");
             }
 
             if (ModelState.IsValid)
@@ -124,6 +140,7 @@ namespace ASP_BeachBar.Controllers
             }
 
             var category = await _context.Categories
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (category == null)
             {
@@ -138,6 +155,24 @@ namespace ASP_BeachBar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var hasItems = await _context.Products.AnyAsync(p => p.CategoryId == id) ||
+                await _context.Drinks.AnyAsync(d => d.CategoryId == id);
+
+            if (hasItems)
+            {
+                var categoryWithItems = await _context.Categories
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(c => c.Id == id);
+
+                if (categoryWithItems == null)
+                {
+                    return NotFound();
+                }
+
+                ModelState.AddModelError(string.Empty, "Категорията не може да бъде изтрита, защото има свързани храни или напитки.");
+                return View("Delete", categoryWithItems);
+            }
+
             var category = await _context.Categories.FindAsync(id);
             if (category != null)
             {
@@ -151,6 +186,14 @@ namespace ASP_BeachBar.Controllers
         private bool CategoryExists(int id)
         {
             return _context.Categories.Any(e => e.Id == id);
+        }
+
+        private void ValidateCategoryName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                ModelState.AddModelError(nameof(Category.Name), "Името е задължително.");
+            }
         }
     }
 }

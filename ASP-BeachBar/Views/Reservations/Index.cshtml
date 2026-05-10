@@ -1,53 +1,43 @@
-﻿@model IEnumerable<ASP_BeachBar.Data.Reservation>
+@model IEnumerable<ASP_BeachBar.Data.Reservation>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Резервации";
 }
 
-<h1>Index</h1>
+<div class="section-head">
+    <div>
+        <p class="eyebrow">Гости</p>
+        <h1>Резервации</h1>
+        <p>Запазени места за събитията в Shoreline Beach Bar.</p>
+    </div>
+    <a class="btn btn-beach" asp-action="Create">Нова резервация</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Clients)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Events)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Count)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservationDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="admin-table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Клиент</th>
+                <th>Събитие</th>
+                <th>Места</th>
+                <th>Дата</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Clients.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Events.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>@(item.Clients?.UserName ?? item.ClientId)</td>
+                <td>@(item.Events?.Name ?? "Събитие")</td>
+                <td>@Html.DisplayFor(modelItem => item.Count)</td>
+                <td>@item.ReservationDate.ToString("dd.MM.yyyy HH:mm")</td>
+                <td class="table-actions">
+                    <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
+                    <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                </td>
+            </tr>
 }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>

@@ -17,169 +17,169 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ASP_BeachBar
 build_property.RootNamespace = ASP_BeachBar
-build_property.ProjectDir = C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar\
+build_property.ProjectDir = C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\TEACHERS-10\Desktop\Nikola 12a\ASPBeachBar\ASP-BeachBar
+build_property.MSBuildProjectDirectory = C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Categories/Create.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Categories/Delete.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Categories/Details.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Categories/Edit.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Categories/Index.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Drinks/Create.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Drinks/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Drinks/Delete.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Drinks/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Drinks/Details.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Drinks/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Drinks/Edit.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Drinks/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Drinks/Index.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Drinks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJpbmtzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Events/Create.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Events/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Events/Delete.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Events/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Events/Details.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Events/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Events/Edit.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Events/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Events/Index.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Events/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Home/Index.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Home/Privacy.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Products/Create.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Products/Delete.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Products/Details.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Products/Edit.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Products/Index.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Reservations/Create.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Reservations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Reservations/Delete.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Reservations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Reservations/Details.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Reservations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Reservations/Edit.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Reservations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Reservations/Index.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Reservations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Shared/Error.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/_ViewImports.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/_ViewStart.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/TEACHERS-10/Desktop/Nikola 12a/ASPBeachBar/ASP-BeachBar/Views/Shared/_Layout.cshtml]
+[C:/Users/nikol/OneDrive/Documents/GitHub/ASPBeachBar/ASP-BeachBar/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-cvx5b4btxh

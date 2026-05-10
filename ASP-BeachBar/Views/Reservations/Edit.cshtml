@@ -1,47 +1,34 @@
-﻿@model ASP_BeachBar.Data.Reservation
+@model ASP_BeachBar.Data.Reservation
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Редакция на резервация";
 }
 
-<h1>Edit</h1>
-
-<h4>Reservation</h4>
-<hr />
+<div class="section-head"><div><p class="eyebrow">Shoreline</p><h1>Редакция на резервация</h1></div></div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
-                <span asp-validation-for="ClientId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EventsId" class="control-label"></label>
-                <select asp-for="EventsId" class="form-control" asp-items="ViewBag.EventsId"></select>
+                <label asp-for="EventsId" class="control-label">Събитие</label>
+                <select asp-for="EventsId" class="form-select" asp-items="ViewBag.EventsId"></select>
                 <span asp-validation-for="EventsId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Count" class="control-label"></label>
+                <label asp-for="Count" class="control-label">Брой места</label>
                 <input asp-for="Count" class="form-control" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReservationDate" class="control-label"></label>
-                <input asp-for="ReservationDate" class="form-control" />
-                <span asp-validation-for="ReservationDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Запази" class="btn btn-primary mt-3" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад към резервациите</a>
 </div>
 
 @section Scripts {

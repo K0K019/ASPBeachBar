@@ -1,60 +1,64 @@
 ﻿@model ASP_BeachBar.Data.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Детайли";
 }
 
-<h1>Details</h1>
+<div class="section-head"><div><p class="eyebrow">Меню</p><h1>Детайли за продукт</h1></div></div>
 
-<div>
-    <h4>Product</h4>
+<div class="detail-card">
+    <h4>@Model.Name</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            Име
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Categories)
+            Категория
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categories.Id)
+            @Html.DisplayFor(model => model.Categories.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            Снимка
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageUrl)
+            <img class="thumb" src="@Model.ImageUrl" alt="@Model.Name" />
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
+            Описание
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Weight)
+            Грамаж
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Weight)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            Цена
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            @Model.Price.ToString("0.00") €
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegisterOn)
+            Добавен на
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RegisterOn)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="detail-actions">
+    @if (User.IsInRole("Admin"))
+    {
+        <a class="btn btn-outline-beach" asp-action="Edit" asp-route-id="@Model?.Id">Редакция</a>
+        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@Model?.Id">Изтриване</a>
+    }
+    <a asp-action="Index">Назад към храната</a>
 </div>

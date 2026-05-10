@@ -26,8 +26,20 @@ namespace ASP_BeachBar.Controllers
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Reservations.Include(r => r.Clients).Include(r => r.Events);
-            return View(await applicationDbContext.ToListAsync());
+            var reservations = _context.Reservations
+                .AsNoTracking()
+                .Include(r => r.Clients)
+                .Include(r => r.Events)
+                .OrderByDescending(r => r.ReservationDate)
+                .AsQueryable();
+
+            if (!User.IsInRole("Admin"))
+            {
+                var userId = _userManager.GetUserId(User);
+                reservations = reservations.Where(r => r.ClientId == userId);
+            }
+
+            return View(await reservations.ToListAsync());
         }
 
         // GET: Reservations/Details/5
@@ -38,10 +50,19 @@ namespace ASP_BeachBar.Controllers
                 return NotFound();
             }
 
-            var reservation = await _context.Reservations
+            var reservations = _context.Reservations
+                .AsNoTracking()
                 .Include(r => r.Clients)
                 .Include(r => r.Events)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .AsQueryable();
+
+            if (!User.IsInRole("Admin"))
+            {
+                var userId = _userManager.GetUserId(User);
+                reservations = reservations.Where(r => r.ClientId == userId);
+            }
+
+            var reservation = await reservations.FirstOrDefaultAsync(m => m.Id == id);
             if (reservation == null)
             {
                 return NotFound();
@@ -51,30 +72,46 @@ namespace ASP_BeachBar.Controllers
         }
 
         // GET: Reservations/Create
-        public IActionResult Create()
+        public IActionResult Create(int? eventId)
         {
-           
-            ViewData["EventsId"] = new SelectList(_context.Events, "Id", "Name");
+            ViewData["EventsId"] = new SelectList(AvailableReservationEvents(), "Id", "Name", eventId);
             return View();
         }
 
-        // POST: Reservations/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EventsId,Count")] Reservation reservation)
         {
+            var userId = _userManager.GetUserId(User);
+            if (userId == null)
+            {
+                return Challenge();
+            }
+
             reservation.ReservationDate = DateTime.Now;
-            reservation.ClientId = _userManager.GetUserId(User);
+            reservation.ClientId = userId;
+            if (reservation.Count <= 0)
+            {
+                ModelState.AddModelError(nameof(reservation.Count), "Броят места трябва да е поне 1.");
+            }
+
+            var selectedEvent = await _context.Events.FindAsync(reservation.EventsId);
+            if (selectedEvent == null)
+            {
+                ModelState.AddModelError(nameof(reservation.EventsId), "Избери валидно събитие.");
+            }
+            else if (selectedEvent.DateReservation < DateTime.Now)
+            {
+                ModelState.AddModelError(nameof(reservation.EventsId), "Не може да се резервира минало събитие.");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            //ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["EventsId"] = new SelectList(_context.Events, "Id", "Name", reservation.EventsId);
+            ViewData["EventsId"] = new SelectList(AvailableReservationEvents(), "Id", "Name", reservation.EventsId);
             return View(reservation);
         }
 
@@ -86,33 +123,61 @@ namespace ASP_BeachBar.Controllers
                 return NotFound();
             }
 
-            var reservation = await _context.Reservations.FindAsync(id);
+            var reservations = _context.Reservations.AsQueryable();
+
+            if (!User.IsInRole("Admin"))
+            {
+                var userId = _userManager.GetUserId(User);
+                reservations = reservations.Where(r => r.ClientId == userId);
+            }
+
+            var reservation = await reservations.FirstOrDefaultAsync(r => r.Id == id);
             if (reservation == null)
             {
                 return NotFound();
             }
-            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["EventsId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventsId);
+            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "UserName", reservation.ClientId);
+            ViewData["EventsId"] = new SelectList(AvailableReservationEvents(reservation.EventsId), "Id", "Name", reservation.EventsId);
             return View(reservation);
         }
 
-        // POST: Reservations/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClientId,EventsId,Count,ReservationDate")] Reservation reservation)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EventsId,Count")] Reservation reservation)
         {
             if (id != reservation.Id)
             {
                 return NotFound();
             }
 
+            var existingReservation = await _context.Reservations.FirstOrDefaultAsync(r => r.Id == id);
+            if (existingReservation == null ||
+                (!User.IsInRole("Admin") && existingReservation.ClientId != _userManager.GetUserId(User)))
+            {
+                return NotFound();
+            }
+
+            if (reservation.Count <= 0)
+            {
+                ModelState.AddModelError(nameof(reservation.Count), "Броят места трябва да е поне 1.");
+            }
+
+            var selectedEvent = await _context.Events.FindAsync(reservation.EventsId);
+            if (selectedEvent == null)
+            {
+                ModelState.AddModelError(nameof(reservation.EventsId), "Избери валидно събитие.");
+            }
+            else if (selectedEvent.DateReservation < DateTime.Now)
+            {
+                ModelState.AddModelError(nameof(reservation.EventsId), "Не може да се резервира минало събитие.");
+            }
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(reservation);
+                    existingReservation.EventsId = reservation.EventsId;
+                    existingReservation.Count = reservation.Count;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -128,8 +193,8 @@ namespace ASP_BeachBar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "Id", reservation.ClientId);
-            ViewData["EventsId"] = new SelectList(_context.Events, "Id", "Id", reservation.EventsId);
+            ViewData["ClientId"] = new SelectList(_context.Users, "Id", "UserName", existingReservation.ClientId);
+            ViewData["EventsId"] = new SelectList(AvailableReservationEvents(reservation.EventsId), "Id", "Name", reservation.EventsId);
             return View(reservation);
         }
 
@@ -141,10 +206,19 @@ namespace ASP_BeachBar.Controllers
                 return NotFound();
             }
 
-            var reservation = await _context.Reservations
+            var reservations = _context.Reservations
+                .AsNoTracking()
                 .Include(r => r.Clients)
                 .Include(r => r.Events)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .AsQueryable();
+
+            if (!User.IsInRole("Admin"))
+            {
+                var userId = _userManager.GetUserId(User);
+                reservations = reservations.Where(r => r.ClientId == userId);
+            }
+
+            var reservation = await reservations.FirstOrDefaultAsync(m => m.Id == id);
             if (reservation == null)
             {
                 return NotFound();
@@ -159,7 +233,8 @@ namespace ASP_BeachBar.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var reservation = await _context.Reservations.FindAsync(id);
-            if (reservation != null)
+            if (reservation != null &&
+                (User.IsInRole("Admin") || reservation.ClientId == _userManager.GetUserId(User)))
             {
                 _context.Reservations.Remove(reservation);
             }
@@ -171,6 +246,14 @@ namespace ASP_BeachBar.Controllers
         private bool ReservationExists(int id)
         {
             return _context.Reservations.Any(e => e.Id == id);
+        }
+
+        private IQueryable<Event> AvailableReservationEvents(int? includeEventId = null)
+        {
+            var now = DateTime.Now;
+            return _context.Events
+                .Where(e => e.DateReservation >= now || e.Id == includeEventId)
+                .OrderBy(e => e.DateReservation);
         }
     }
 }
