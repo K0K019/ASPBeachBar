@@ -26,6 +26,11 @@ namespace ASP_BeachBar.Controllers
         // GET: Reservations
         public async Task<IActionResult> Index()
         {
+            if (User.IsInRole("Admin"))
+            {
+                ViewData["EventsId"] = new SelectList(_context.Events.OrderBy(e => e.DateReservation), "Id", "Name");
+            }
+
             var reservations = _context.Reservations
                 .AsNoTracking()
                 .Include(r => r.Clients)
@@ -40,6 +45,31 @@ namespace ASP_BeachBar.Controllers
             }
 
             return View(await reservations.ToListAsync());
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> ByEvent(int? eventId)
+        {
+            ViewData["EventsId"] = new SelectList(
+                _context.Events.OrderBy(e => e.DateReservation),
+                "Id",
+                "Name",
+                eventId);
+
+            var reservations = _context.Reservations
+                .AsNoTracking()
+                .Include(r => r.Clients)
+                .Include(r => r.Events)
+                .OrderByDescending(r => r.ReservationDate)
+                .AsQueryable();
+
+            if (eventId.HasValue)
+            {
+                reservations = reservations.Where(r => r.EventsId == eventId.Value);
+            }
+
+            ViewData["SelectedEventId"] = eventId;
+            return View("Index", await reservations.ToListAsync());
         }
 
         // GET: Reservations/Details/5
@@ -90,6 +120,7 @@ namespace ASP_BeachBar.Controllers
 
             reservation.ReservationDate = DateTime.Now;
             reservation.ClientId = userId;
+            reservation.Status = ReservationStatus.Active;
             if (reservation.Count <= 0)
             {
                 ModelState.AddModelError(nameof(reservation.Count), "Броят места трябва да е поне 1.");
@@ -199,6 +230,7 @@ namespace ASP_BeachBar.Controllers
         }
 
         // GET: Reservations/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -230,16 +262,34 @@ namespace ASP_BeachBar.Controllers
         // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var reservation = await _context.Reservations.FindAsync(id);
             if (reservation != null &&
-                (User.IsInRole("Admin") || reservation.ClientId == _userManager.GetUserId(User)))
+                User.IsInRole("Admin"))
             {
                 _context.Reservations.Remove(reservation);
             }
 
             await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cancel(int id)
+        {
+            var reservation = await _context.Reservations.FindAsync(id);
+            if (reservation == null ||
+                (!User.IsInRole("Admin") && reservation.ClientId != _userManager.GetUserId(User)))
+            {
+                return NotFound();
+            }
+
+            reservation.Status = ReservationStatus.Cancelled;
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 

@@ -2,44 +2,74 @@
 
 @{
     ViewData["Title"] = "Напитки";
+    var groups = Model
+        .GroupBy(d => d.Categories?.Name ?? "Други напитки")
+        .OrderBy(g => g.Key switch
+        {
+            "Алкохолни коктейли" => 1,
+            "Безалкохолни коктейли" => 2,
+            "Алкохолни напитки" => 3,
+            "Безалкохолни напитки" => 4,
+            _ => 5
+        })
+        .ToList();
 }
 
-<div class="section-head">
+<section class="drinks-hero">
     <div>
         <p class="eyebrow">Бар</p>
-        <h1>Студени напитки</h1>
-        <p>Коктейли, лимонади и свежи миксове за целия ден.</p>
+        <h1>Напитки</h1>
+        <p>Всички предложения са събрани на едно място: алкохолни и безалкохолни коктейли, класически напитки, лимонади и свежи летни миксове.</p>
     </div>
     @if (User.IsInRole("Admin"))
     {
         <a class="btn btn-beach" asp-action="Create">Добави напитка</a>
     }
-</div>
+</section>
 
-<div class="menu-grid">
-@foreach (var item in Model)
+<div class="drink-jump">
+@foreach (var group in groups)
 {
-    <article class="beach-card">
-        <img class="card-img" src="@item.ImageUrl" alt="@item.Name" />
-        <div class="beach-card-body">
-            <div class="card-title-row">
-                <h2>@item.Name</h2>
-                <span class="price-pill">@item.Price.ToString("0.00") €</span>
-            </div>
-            <div class="d-flex flex-wrap gap-2 mt-3">
-                <span class="meta-pill">@(item.Categories?.Name ?? "Бар")</span>
-                <span class="meta-pill">@item.Weight.ToString("0") мл</span>
-                <span class="meta-pill">@(item.IsAlcoholic ? "Алкохолна" : "Без алкохол")</span>
-            </div>
-            <div class="card-actions">
-                <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
-                @if (User.IsInRole("Admin"))
-                {
-                    <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
-                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
-                }
-            </div>
-        </div>
-    </article>
+    <a href="#@group.Key.Replace(" ", "-").ToLowerInvariant()">@group.Key</a>
 }
 </div>
+
+@foreach (var group in groups)
+{
+    <section class="drink-section" id="@group.Key.Replace(" ", "-").ToLowerInvariant()">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow">@(group.Any(d => d.IsAlcoholic) ? "Алкохол" : "Без алкохол")</p>
+                <h2>@group.Key</h2>
+            </div>
+        </div>
+
+        <div class="menu-grid">
+        @foreach (var item in group.OrderBy(d => d.Name))
+        {
+            <article class="beach-card">
+                <img class="card-img" src="@item.ImageUrl" alt="@item.Name" />
+                <div class="beach-card-body">
+                    <div class="card-title-row">
+                        <h3>@item.Name</h3>
+                        <span class="price-pill">@item.Price.ToString("0.00") €</span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="meta-pill">@item.Weight.ToString("0") мл</span>
+                        <span class="meta-pill">@(item.IsAlcoholic ? "Алкохолна" : "Без алкохол")</span>
+                        <span class="meta-pill">Обновено: @item.LastUpdatedOn.ToString("dd.MM.yyyy")</span>
+                    </div>
+                    <div class="card-actions">
+                        <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
+                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                        }
+                    </div>
+                </div>
+            </article>
+        }
+        </div>
+    </section>
+}

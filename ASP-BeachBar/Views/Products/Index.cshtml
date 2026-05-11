@@ -1,45 +1,88 @@
 @model IEnumerable<ASP_BeachBar.Data.Product>
 
 @{
-    ViewData["Title"] = "Храна";
+    ViewData["Title"] = "Меню";
+
+    var categoryOrder = new[]
+    {
+        "Салати",
+        "Разядки",
+        "Предястия",
+        "Основни ястия",
+        "Морски ястия",
+        "Десерти"
+    };
+
+    var groups = Model
+        .GroupBy(p => p.Categories?.Name ?? "Други")
+        .OrderBy(g =>
+        {
+            var index = Array.IndexOf(categoryOrder, g.Key);
+            return index < 0 ? 999 : index;
+        })
+        .ThenBy(g => g.Key)
+        .ToList();
 }
 
 <div class="section-head">
     <div>
         <p class="eyebrow">Меню</p>
-        <h1>Храна за плажа</h1>
-        <p>Леки морски предложения, свежи плодове и неща за споделяне между две влизания във водата.</p>
+        <h1>Храна и артикули от менюто</h1>
+        <p>Модерни предложения с български вкус, подредени по категории за по-лесен избор.</p>
     </div>
     @if (User.IsInRole("Admin"))
     {
-        <a class="btn btn-beach" asp-action="Create">Добави продукт</a>
+        <a class="btn btn-beach" asp-action="Create">Добави артикул</a>
     }
 </div>
 
-<div class="menu-grid">
-@foreach (var item in Model)
+<nav class="menu-jump" aria-label="Категории в менюто">
+@foreach (var group in groups)
 {
-    <article class="beach-card">
-        <img class="card-img" src="@item.ImageUrl" alt="@item.Name" />
-        <div class="beach-card-body">
-            <div class="card-title-row">
-                <h2>@item.Name</h2>
-                <span class="price-pill">@item.Price.ToString("0.00") €</span>
-            </div>
-            <p class="muted mt-2 mb-2">@item.Description</p>
-            <div class="d-flex flex-wrap gap-2">
-                <span class="meta-pill">@(item.Categories?.Name ?? "Меню")</span>
-                <span class="meta-pill">@item.Weight.ToString("0") г</span>
-            </div>
-            <div class="card-actions">
-                <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
-                @if (User.IsInRole("Admin"))
-                {
-                    <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
-                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
-                }
+    <a href="#@group.Key.Replace(" ", "-").ToLowerInvariant()">@group.Key</a>
+}
+</nav>
+
+@foreach (var group in groups)
+{
+    <section class="food-section" id="@group.Key.Replace(" ", "-").ToLowerInvariant()">
+        <div class="section-head compact-section-head">
+            <div>
+                <p class="eyebrow">Меню</p>
+                <h2>@group.Key</h2>
+                <p>@group.Count() предложения</p>
             </div>
         </div>
-    </article>
+
+        <div class="menu-grid">
+        @foreach (var item in group.OrderBy(p => p.Name))
+        {
+            <article class="beach-card">
+                <div class="menu-image-wrap">
+                    <img class="card-img" src="@item.ImageUrl" alt="@item.Name" />
+                    <span class="image-name-badge">@item.Name</span>
+                </div>
+                <div class="beach-card-body">
+                    <div class="card-title-row">
+                        <h3>@item.Name</h3>
+                        <span class="price-pill">@item.Price.ToString("0.00") €</span>
+                    </div>
+                    <p class="muted mt-2 mb-2">@item.Description</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="meta-pill">@item.Weight.ToString("0") г</span>
+                        <span class="meta-pill">Обновено: @item.LastUpdatedOn.ToString("dd.MM.yyyy")</span>
+                    </div>
+                    <div class="card-actions">
+                        <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
+                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                        }
+                    </div>
+                </div>
+            </article>
+        }
+        </div>
+    </section>
 }
-</div>

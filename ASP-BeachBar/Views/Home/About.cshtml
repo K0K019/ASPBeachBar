@@ -5,8 +5,8 @@
 <section class="about-hero">
     <div class="about-hero-copy">
         <p class="eyebrow">Созопол, стар град и солен въздух</p>
-        <h1>Shoreline е мястото, където денят край морето естествено става вечер с приятели.</h1>
-        <p>Намираме се в Созопол, близо до ритъма на стария град, пристанището и онези залези, заради които човек остава още една песен.</p>
+        <h1>Shoreline е плажен бар за леки обеди, студени напитки и вечери край морето.</h1>
+        <p>Намираме се близо до ритъма на стария град, пристанището и онези залези, заради които човек остава още една песен.</p>
     </div>
     <div class="about-hero-badges" aria-label="Акценти">
         <span>Созопол</span>
@@ -41,29 +41,24 @@
     </article>
 </section>
 
-<section class="about-local">
-    <div class="about-local-image">
-        <img src="https://cdn.pixabay.com/photo/2021/07/10/16/27/sea-6401823_1280.jpg" alt="Созопол край морето" />
-    </div>
-    <div class="about-local-copy">
-        <p class="eyebrow">Защо Созопол</p>
-        <h2>Град с история, море и настроение, което не бърза.</h2>
-        <p>Тук старите къщи, тесните улици и Черно море правят фона. Ние добавяме масите, чашите, музиката и хората около тях.</p>
-        <div class="about-local-facts">
-            <span>Стар град</span>
-            <span>Морски бриз</span>
-            <span>Вечери на открито</span>
-        </div>
-    </div>
-</section>
-
-<section class="about-cta">
+<section class="about-contact">
     <div>
-        <p class="eyebrow">Ела при нас</p>
-        <h2>Запази маса за следващото събитие или просто мини за нещо студено.</h2>
+        <p class="eyebrow">Контакти</p>
+        <h2>Ела при нас или запази маса за следващото събитие.</h2>
+        <p class="muted">Онлайн резервациите остават в самостоятелната страница „Резервация“, за да е ясно къде клиентът прави заявка.</p>
     </div>
+    <dl>
+        <dt>Адрес</dt>
+        <dd>Созопол, крайбрежна алея</dd>
+        <dt>Телефон</dt>
+        <dd>0888 123 456</dd>
+        <dt>Имейл</dt>
+        <dd>hello@shoreline-beachbar.test</dd>
+        <dt>Работно време</dt>
+        <dd>Всеки ден, 10:00 - 01:00</dd>
+    </dl>
     <div class="about-cta-actions">
-        <a class="btn btn-beach" asp-controller="Events" asp-action="Index">Виж събитията</a>
-        <a class="btn btn-outline-beach" asp-controller="Products" asp-action="Index">Разгледай менюто</a>
+        <a class="btn btn-beach" asp-controller="Reservations" asp-action="Create">Резервация</a>
+        <a class="btn btn-outline-beach" asp-controller="Events" asp-action="Index">Събития</a>
     </div>
 </section>

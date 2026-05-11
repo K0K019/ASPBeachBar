@@ -65,6 +65,7 @@ namespace ASP_BeachBar.Controllers
         public async Task<IActionResult> Create([Bind("Id,Name,CategoryId,ImageUrl,Description,Weight,Price")] Product product)
         {
             product.RegisterOn = DateTime.Now;
+            product.LastUpdatedOn = product.RegisterOn;
             await ValidateCategoryAsync(product.CategoryId);
 
             if (ModelState.IsValid)
@@ -123,6 +124,7 @@ namespace ASP_BeachBar.Controllers
                     existingProduct.Description = product.Description;
                     existingProduct.Weight = product.Weight;
                     existingProduct.Price = product.Price;
+                    existingProduct.LastUpdatedOn = DateTime.Now;
 
                     await _context.SaveChangesAsync();
                 }

@@ -71,6 +71,7 @@ namespace ASP_BeachBar.Controllers
         public async Task<IActionResult> Create([Bind("Id,Name,ImageUrl,Description,DateReservation")] Event @event)
         {
             @event.RegisterOn = DateTime.Now;
+            @event.LastUpdatedOn = @event.RegisterOn;
             if (@event.DateReservation <= DateTime.Now)
             {
                 ModelState.AddModelError(nameof(@event.DateReservation), "Събитието трябва да бъде в бъдещето.");
@@ -131,6 +132,7 @@ namespace ASP_BeachBar.Controllers
                     existingEvent.ImageUrl = @event.ImageUrl;
                     existingEvent.Description = @event.Description;
                     existingEvent.DateReservation = @event.DateReservation;
+                    existingEvent.LastUpdatedOn = DateTime.Now;
 
                     await _context.SaveChangesAsync();
                 }

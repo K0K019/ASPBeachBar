@@ -2,47 +2,89 @@
     ViewData["Title"] = "Начало";
 }
 
-<section class="hero">
-    <div>
-        <p class="eyebrow">Beach bar на първа линия</p>
+<section class="home-hero">
+    <div class="home-hero-copy">
+        <p class="eyebrow">Beach bar в Созопол</p>
         <h1>Shoreline Beach Bar</h1>
-        <p>Свежи коктейли, лека морска храна, залези с DJ сетове и места за приятели, които остават до последната песен.</p>
+        <p>Модерна морска кухня, коктейли, културни вечери и резервации за маса в атмосферата на стария Созопол.</p>
         <div class="hero-actions">
-            <a class="btn btn-beach" asp-controller="Products" asp-action="Index">Виж менюто</a>
-            <a class="btn btn-outline-beach" asp-controller="Events" asp-action="Index">Предстоящи събития</a>
+            <a class="btn btn-beach" asp-controller="Reservations" asp-action="Create">Резервирай маса</a>
+            <a class="btn btn-outline-beach" asp-controller="Products" asp-action="Index">Виж менюто</a>
         </div>
+    </div>
+    <div class="home-hero-media" aria-label="Shoreline Beach Bar акценти">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1100&q=80" alt="Плаж край морето" />
+        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=80" alt="Летни напитки" />
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80" alt="Вино и вечеря" />
     </div>
 </section>
 
-<section class="mt-5">
-    <div class="section-head">
-        <div>
-            <p class="eyebrow">Лятно настроение</p>
-            <h2>Всичко нужно за ден край морето</h2>
-            <p>Менюто е леко, цветно и удобно за споделяне, а вечерите са запазени за музика, танци и резервации.</p>
-        </div>
+<section class="home-highlights" aria-label="Акценти">
+    <article>
+        <span>20+</span>
+        <p>модерни ястия с български вкус</p>
+    </article>
+    <article>
+        <span>4</span>
+        <p>категории напитки и коктейли</p>
+    </article>
+    <article>
+        <span>2026</span>
+        <p>календар със събития по созополски модел</p>
+    </article>
+</section>
+
+<section class="home-showcase">
+    <a class="home-showcase-card home-showcase-large" asp-controller="Products" asp-action="Index">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shopska%20Salad.JPG?width=1000" alt="Българска салата" />
+        <span>Меню</span>
+        <strong>Морска кухня с български характер</strong>
+    </a>
+    <a class="home-showcase-card" asp-controller="Drinks" asp-action="Index">
+        <img src="https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=900&q=80" alt="Коктейли и напитки" />
+        <span>Напитки</span>
+        <strong>Коктейли, лимонади и вечерни класики</strong>
+    </a>
+    <a class="home-showcase-card" asp-controller="Events" asp-action="Index">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80" alt="Концертна вечер" />
+        <span>Събития</span>
+        <strong>Културни вечери край морето</strong>
+    </a>
+</section>
+
+<section class="home-flow">
+    <div>
+        <p class="eyebrow">Един летен ден</p>
+        <h2>От обяд до последната светлина</h2>
+        <p>Започни със салата и домашна лимонада, остани за коктейл на залез и завърши вечерта със събитие от календара.</p>
     </div>
-    <div class="feature-grid">
-        <article class="beach-card">
-            <img class="card-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Коктейли на плажа" />
-            <div class="beach-card-body">
-                <h3>Коктейли и лимонади</h3>
-                <p class="muted mb-0">Мохито, сангрия, тропически миксове и свежи безалкохолни предложения.</p>
-            </div>
-        </article>
-        <article class="beach-card">
-            <img class="card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=80" alt="Лятна храна" />
-            <div class="beach-card-body">
-                <h3>Храна за споделяне</h3>
-                <p class="muted mb-0">Такоси, брускети, скариди, плодови купи и хрупкави предложения за шезлонга.</p>
-            </div>
-        </article>
-        <article class="beach-card">
-            <img class="card-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80" alt="Парти вечер" />
-            <div class="beach-card-body">
-                <h3>Събития до залез</h3>
-                <p class="muted mb-0">DJ вечери, acoustic sunset sessions и дегустации с резервации онлайн.</p>
-            </div>
-        </article>
+    <ol>
+        <li>
+            <span>01</span>
+            <strong>Избери меню</strong>
+            <p>Категориите са подредени ясно: салати, разядки, предястия, основни, морски ястия и десерти.</p>
+        </li>
+        <li>
+            <span>02</span>
+            <strong>Запази маса</strong>
+            <p>Регистриран клиент може да направи резервация за избрано събитие, дата и брой гости.</p>
+        </li>
+        <li>
+            <span>03</span>
+            <strong>Ела край морето</strong>
+            <p>Shoreline събира храната, напитките и програмата в една спокойна, модерна плажна среда.</p>
+        </li>
+    </ol>
+</section>
+
+<section class="home-reserve-band">
+    <div>
+        <p class="eyebrow">Резервации</p>
+        <h2>Запази място за следващата вечер край морето.</h2>
+    </div>
+    <div class="home-reserve-actions">
+        <a class="btn btn-beach" asp-controller="Reservations" asp-action="Create">Резервирай</a>
+        <a class="btn btn-outline-beach" asp-controller="Home" asp-action="Gallery">Галерия</a>
+        <a class="btn btn-outline-beach" asp-controller="Home" asp-action="About">За нас</a>
     </div>
 </section>

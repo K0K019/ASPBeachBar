@@ -30,6 +30,42 @@ namespace ASP_BeachBar.Controllers
                 .ToListAsync());
         }
 
+        public async Task<IActionResult> Alcoholic()
+        {
+            ViewData["Title"] = "Алкохолни напитки";
+            ViewData["Heading"] = "Алкохолни напитки";
+            ViewData["Description"] = "Подбрани коктейли, класики и свежи летни напитки с алкохол.";
+
+            return View("Index", await DrinksByType(isAlcoholic: true, cocktailsOnly: false).ToListAsync());
+        }
+
+        public async Task<IActionResult> NonAlcoholic()
+        {
+            ViewData["Title"] = "Безалкохолни напитки";
+            ViewData["Heading"] = "Безалкохолни напитки";
+            ViewData["Description"] = "Лимонади, mocktails и свежи предложения без алкохол.";
+
+            return View("Index", await DrinksByType(isAlcoholic: false, cocktailsOnly: false).ToListAsync());
+        }
+
+        public async Task<IActionResult> AlcoholicCocktails()
+        {
+            ViewData["Title"] = "Алкохолни коктейли";
+            ViewData["Heading"] = "Алкохолни коктейли";
+            ViewData["Description"] = "Класически и авторски коктейли за вечер край морето.";
+
+            return View("Index", await DrinksByType(isAlcoholic: true, cocktailsOnly: true).ToListAsync());
+        }
+
+        public async Task<IActionResult> NonAlcoholicCocktails()
+        {
+            ViewData["Title"] = "Безалкохолни коктейли";
+            ViewData["Heading"] = "Безалкохолни коктейли";
+            ViewData["Description"] = "Цветни mocktails и коктейли без алкохол за всяка възраст.";
+
+            return View("Index", await DrinksByType(isAlcoholic: false, cocktailsOnly: true).ToListAsync());
+        }
+
         // GET: Drinks/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -64,6 +100,7 @@ namespace ASP_BeachBar.Controllers
         public async Task<IActionResult> Create([Bind("Id,Name,ImageUrl,IsAlcoholic,CategoryId,Weight,Price")] Drink drink)
         {
             drink.RegisterOn = DateTime.Now;
+            drink.LastUpdatedOn = drink.RegisterOn;
             await ValidateCategoryAsync(drink.CategoryId);
 
             if (ModelState.IsValid)
@@ -122,6 +159,7 @@ namespace ASP_BeachBar.Controllers
                     existingDrink.CategoryId = drink.CategoryId;
                     existingDrink.Weight = drink.Weight;
                     existingDrink.Price = drink.Price;
+                    existingDrink.LastUpdatedOn = DateTime.Now;
 
                     await _context.SaveChangesAsync();
                 }
@@ -182,6 +220,23 @@ namespace ASP_BeachBar.Controllers
         private bool DrinkExists(int id)
         {
             return _context.Drinks.Any(e => e.Id == id);
+        }
+
+        private IQueryable<Drink> DrinksByType(bool isAlcoholic, bool cocktailsOnly)
+        {
+            var query = _context.Drinks
+                .AsNoTracking()
+                .Include(d => d.Categories)
+                .Where(d => d.IsAlcoholic == isAlcoholic);
+
+            if (cocktailsOnly)
+            {
+                query = query.Where(d => d.Categories.Name.Contains("коктейл") || d.Categories.Name.Contains("Коктейл"));
+            }
+
+            return query
+                .OrderBy(d => d.Categories.Name)
+                .ThenBy(d => d.Name);
         }
 
         private async Task ValidateCategoryAsync(int categoryId)

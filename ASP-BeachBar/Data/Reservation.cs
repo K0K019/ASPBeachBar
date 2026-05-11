@@ -2,6 +2,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ASP_BeachBar.Data
 {
+    public enum ReservationStatus
+    {
+        Active = 0,
+        Cancelled = 1
+    }
+
     public class Reservation
     {
         public int Id { get; set; }
@@ -20,5 +26,8 @@ namespace ASP_BeachBar.Data
 
         [Display(Name = "Резервирано на")]
         public DateTime ReservationDate { get; set; }
+
+        [Display(Name = "Статус")]
+        public ReservationStatus Status { get; set; } = ReservationStatus.Active;
     }
 }

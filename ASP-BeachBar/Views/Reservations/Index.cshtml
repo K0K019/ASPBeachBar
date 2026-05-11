@@ -13,6 +13,23 @@
     <a class="btn btn-beach" asp-action="Create">Нова резервация</a>
 </div>
 
+@if (User.IsInRole("Admin"))
+{
+    <form asp-action="ByEvent" method="get" class="form-card mb-3">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-8">
+                <label class="control-label" for="eventId">Справка за конкретно събитие</label>
+                <select id="eventId" name="eventId" class="form-select" asp-items="ViewBag.EventsId">
+                    <option value="">Всички събития</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-beach w-100">Покажи</button>
+            </div>
+        </div>
+    </form>
+}
+
 <div class="admin-table">
     <table class="table">
         <thead>
@@ -21,6 +38,7 @@
                 <th>Събитие</th>
                 <th>Места</th>
                 <th>Дата</th>
+                <th>Статус</th>
                 <th></th>
             </tr>
         </thead>
@@ -31,10 +49,20 @@
                 <td>@(item.Events?.Name ?? "Събитие")</td>
                 <td>@Html.DisplayFor(modelItem => item.Count)</td>
                 <td>@item.ReservationDate.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@(item.Status == ASP_BeachBar.Data.ReservationStatus.Cancelled ? "Анулирана" : "Активна")</td>
                 <td class="table-actions">
                     <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
                     <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
-                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                    @if (item.Status == ASP_BeachBar.Data.ReservationStatus.Active)
+                    {
+                        <form asp-action="Cancel" asp-route-id="@item.Id" method="post" class="d-inline p-0 m-0 border-0 bg-transparent shadow-none">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Анулирай</button>
+                        </form>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                    }
                 </td>
             </tr>
 }

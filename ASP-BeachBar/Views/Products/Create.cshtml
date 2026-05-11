@@ -1,10 +1,16 @@
 @model ASP_BeachBar.Data.Product
 
 @{
-    ViewData["Title"] = "Нов продукт";
+    ViewData["Title"] = "Нов артикул";
 }
 
-<div class="section-head"><div><p class="eyebrow">Shoreline</p><h1>Нов продукт</h1></div></div>
+<div class="section-head">
+    <div>
+        <p class="eyebrow">Shoreline</p>
+        <h1>Нов артикул от менюто</h1>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -17,6 +23,7 @@
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
                 <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
@@ -46,7 +53,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Назад към храната</a>
+    <a asp-action="Index">Назад към менюто</a>
 </div>
 
 @section Scripts {

@@ -2,45 +2,103 @@
 
 @{
     ViewData["Title"] = "Събития";
+
+    var events = Model.OrderBy(e => e.DateReservation).ToList();
+    var featuredEvent = events.FirstOrDefault();
+    var otherEvents = events.Skip(1).ToList();
 }
 
-<div class="section-head">
-    <div>
-        <p class="eyebrow">Календар</p>
-        <h1>Събития край морето</h1>
-        <p>Залези с музика, акустични вечери и тематични брънчове с места за резервация.</p>
-    </div>
-    @if (User.IsInRole("Admin"))
-    {
-        <a class="btn btn-beach" asp-action="Create">Добави събитие</a>
-    }
-</div>
-
-<div class="event-grid">
-@foreach (var item in Model)
-{
-    <article class="beach-card">
-        <img class="card-img" src="@item.ImageUrl" alt="@item.Name" />
-        <div class="beach-card-body">
-            <div class="card-title-row">
-                <h2>@item.Name</h2>
-                <span class="price-pill">@item.DateReservation.ToString("dd MMM")</span>
-            </div>
-            <p class="muted mt-2">@item.Description</p>
-            <span class="meta-pill">@item.DateReservation.ToString("HH:mm") ч.</span>
-            <div class="card-actions">
-                @if (item.DateReservation >= DateTime.Now)
-                {
-                    <a class="btn btn-sm btn-beach" asp-controller="Reservations" asp-action="Create" asp-route-eventId="@item.Id">Резервирай</a>
-                }
-                <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
-                @if (User.IsInRole("Admin"))
-                {
-                    <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
-                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
-                }
-            </div>
+<div class="events-page">
+    <div class="section-head events-heading">
+        <div>
+            <p class="eyebrow">Календар</p>
+            <h1>Културни вечери край морето</h1>
+            <p>Събития, вдъхновени от фестивалния календар на Созопол, с места за резервация в Shoreline Beach Bar.</p>
         </div>
-    </article>
-}
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-beach" asp-action="Create">Добави събитие</a>
+        }
+    </div>
+
+    @if (featuredEvent == null)
+    {
+        <div class="empty-state">
+            <p class="eyebrow">Няма активни събития</p>
+            <h2>Календарът скоро ще бъде обновен.</h2>
+        </div>
+    }
+    else
+    {
+        <article class="event-feature">
+            <img src="@featuredEvent.ImageUrl" alt="@featuredEvent.Name" />
+            <div class="event-feature-content">
+                <div class="event-date-block">
+                    <span>@featuredEvent.DateReservation.ToString("dd")</span>
+                    <strong>@featuredEvent.DateReservation.ToString("MMM")</strong>
+                </div>
+                <div>
+                    <p class="eyebrow">@featuredEvent.DateReservation.ToString("HH:mm") ч.</p>
+                    <h2>@featuredEvent.Name</h2>
+                    <p>@featuredEvent.Description</p>
+                    <div class="event-actions">
+                        @if (featuredEvent.DateReservation >= DateTime.Now)
+                        {
+                            <a class="btn btn-beach" asp-controller="Reservations" asp-action="Create" asp-route-eventId="@featuredEvent.Id">Резервирай</a>
+                        }
+                        <a class="btn btn-outline-beach" asp-action="Details" asp-route-id="@featuredEvent.Id">Детайли</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="btn btn-outline-beach" asp-action="Edit" asp-route-id="@featuredEvent.Id">Редакция</a>
+                            <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@featuredEvent.Id">Изтриване</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        @if (otherEvents.Any())
+        {
+            <div class="events-strip">
+                <div>
+                    <p class="eyebrow">Предстоящо</p>
+                    <h2>Още вечери в календара</h2>
+                </div>
+                <span>@events.Count събития</span>
+            </div>
+
+            <div class="modern-event-grid">
+                @foreach (var item in otherEvents)
+                {
+                    <article class="event-card-modern">
+                        <div class="event-card-media">
+                            <img src="@item.ImageUrl" alt="@item.Name" />
+                            <div class="event-date-chip">
+                                <span>@item.DateReservation.ToString("dd")</span>
+                                <strong>@item.DateReservation.ToString("MMM")</strong>
+                            </div>
+                        </div>
+                        <div class="event-card-body">
+                            <span class="meta-pill">@item.DateReservation.ToString("HH:mm") ч.</span>
+                            <h3>@item.Name</h3>
+                            <p>@item.Description</p>
+                            <span class="event-updated">Обновено: @item.LastUpdatedOn.ToString("dd.MM.yyyy")</span>
+                            <div class="card-actions">
+                                @if (item.DateReservation >= DateTime.Now)
+                                {
+                                    <a class="btn btn-sm btn-beach" asp-controller="Reservations" asp-action="Create" asp-route-eventId="@item.Id">Резервирай</a>
+                                }
+                                <a class="btn btn-sm btn-outline-beach" asp-action="Details" asp-route-id="@item.Id">Детайли</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a class="btn btn-sm btn-outline-beach" asp-action="Edit" asp-route-id="@item.Id">Редакция</a>
+                                    <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                                }
+                            </div>
+                        </div>
+                    </article>
+                }
+            </div>
+        }
+    }
 </div>

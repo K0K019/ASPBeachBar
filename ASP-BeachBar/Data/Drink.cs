@@ -33,5 +33,8 @@ namespace ASP_BeachBar.Data
 
         [Display(Name = "Добавена на")]
         public DateTime RegisterOn { get; set; }
+
+        [Display(Name = "Последна актуализация")]
+        public DateTime LastUpdatedOn { get; set; }
     }
 }

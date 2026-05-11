@@ -1350,9 +1350,7 @@ C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\bin\Debug\net9
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\scopedcss\bundle\ASP-BeachBar.styles.css
-C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\scopedcss\projectbundle\ASP-BeachBar.bundle.scp.css
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\ofa40bqe71-b9sayid5wm.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\j9swiz3yzq-90yqlj465b.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\vltxs1u3vm-xtxxf3hu2r.gz
@@ -1415,7 +1413,6 @@ C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
-C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\s3z9zi6m3p-trvnehufzm.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\z82ssi849n-61n19gt1b8.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\okmlqq3c22-xtxxf3hu2r.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\omcxufbdri-t1cqhe9u97.gz
@@ -1477,8 +1474,6 @@ C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\6llmcd5hnn-9vr69e8ynj.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\q8if4eqsj2-87fc7y1x7t.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\2bibxk1o6a-mlv21k5csn.gz
-C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\suswa4wj0h-99kzdqm5je.gz
-C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\zek8at7m9d-99kzdqm5je.gz
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\staticwebassets.development.json
@@ -1933,3 +1928,4 @@ C:\Users\1212-2\Desktop\bam\ASPBeachBar\build-check\ASP-BeachBar.runtimeconfig.j
 C:\Users\1212-2\Desktop\bam\ASPBeachBar\build-check\ASP-BeachBar.dll
 C:\Users\1212-2\Desktop\bam\ASPBeachBar\build-check\ASP-BeachBar.pdb
 C:\Users\1212-2\Desktop\bam\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\s3z9zi6m3p-btxh38yien.gz
+C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\obj\Debug\net9.0\compressed\s3z9zi6m3p-cuou9egp1h.gz
