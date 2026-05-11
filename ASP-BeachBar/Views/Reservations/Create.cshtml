@@ -4,30 +4,70 @@
     ViewData["Title"] = "Нова резервация";
 }
 
-<div class="section-head"><div><p class="eyebrow">Shoreline</p><h1>Нова резервация</h1></div></div>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<section class="reservation-scene">
+    <div class="reservation-hero">
+        <div class="reservation-hero-copy">
+            <p class="eyebrow">Shoreline booking</p>
+            <h1>Запази място за вечерта край морето</h1>
+            <p>Избери събитие, кажи колко сте и остави останалото на бара, музиката и залеза.</p>
+        </div>
+        <div class="reservation-notes" aria-label="Акценти">
+            <span>Sunset tables</span>
+            <span>DJ nights</span>
+            <span>Sea breeze</span>
+        </div>
+    </div>
+
+    <div class="reservation-layout">
+        <aside class="reservation-side">
+            <p class="eyebrow">Как работи</p>
+            <h2>Резервацията е в три стъпки</h2>
+            <ol class="reservation-steps">
+                <li>
+                    <span>01</span>
+                    <strong>Избираш събитие</strong>
+                    <small>Показваме само предстоящите вечери.</small>
+                </li>
+                <li>
+                    <span>02</span>
+                    <strong>Добавяш гости</strong>
+                    <small>Минимум 1 място, максимум 100.</small>
+                </li>
+                <li>
+                    <span>03</span>
+                    <strong>Потвърждаваш</strong>
+                    <small>Ще видиш резервацията в списъка си.</small>
+                </li>
+            </ol>
+        </aside>
+
+        <form asp-action="Create" class="reservation-card">
+            <div class="reservation-card-head">
+                <div>
+                    <p class="eyebrow">Нова заявка</p>
+                    <h2>Детайли за резервация</h2>
+                </div>
+                <span class="reservation-badge">Live</span>
+            </div>
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="EventsId" class="control-label">Събитие</label>
                 <select asp-for="EventsId" class="form-select" asp-items="ViewBag.EventsId"></select>
+                <span asp-validation-for="EventsId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Count" class="control-label">Брой места</label>
-                <input asp-for="Count" class="form-control" />
+                <input asp-for="Count" class="form-control" min="1" max="100" placeholder="Например 4" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Резервирай" class="btn btn-primary mt-3" />
+            <div class="reservation-actions">
+                <input type="submit" value="Резервирай" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-beach">Моите резервации</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Назад към резервациите</a>
-</div>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

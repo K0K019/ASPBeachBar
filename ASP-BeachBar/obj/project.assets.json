@@ -8994,19 +8994,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nikol\\.nuget\\packages\\": {}
+    "C:\\Users\\1212-2\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nikol\\OneDrive\\Documents\\GitHub\\ASPBeachBar\\ASP-BeachBar\\ASP-BeachBar.csproj",
+      "projectUniqueName": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\ASP-BeachBar.csproj",
       "projectName": "ASP-BeachBar",
-      "projectPath": "C:\\Users\\nikol\\OneDrive\\Documents\\GitHub\\ASPBeachBar\\ASP-BeachBar\\ASP-BeachBar.csproj",
-      "packagesPath": "C:\\Users\\nikol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nikol\\OneDrive\\Documents\\GitHub\\ASPBeachBar\\ASP-BeachBar\\obj\\",
+      "projectPath": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\ASP-BeachBar.csproj",
+      "packagesPath": "C:\\Users\\1212-2\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\nikol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\1212-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9089,7 +9094,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

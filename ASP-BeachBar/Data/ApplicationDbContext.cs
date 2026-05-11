@@ -18,5 +18,7 @@ namespace ASP_BeachBar.Data
         public DbSet<Reservation> Reservations { get; set; } = null!;
 
         public DbSet<Category> Categories { get; set; } = null!;
+
+        public DbSet<NavigationMenuItem> NavigationMenuItems { get; set; } = null!;
     }
 }

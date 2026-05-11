@@ -7,7 +7,6 @@
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ASP_BeachBar.styles.css" asp-append-version="true" />
 </head>
 <body>
     <div class="site-shell">
@@ -24,30 +23,7 @@
                 </button>
                 <div class="navbar-collapse collapse justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Начало</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Храна</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Drinks" asp-action="Index">Напитки</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Events" asp-action="Index">Събития</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Reservations" asp-action="Create">Резервация</a>
-                        </li>
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link admin-nav-link" asp-area="" asp-controller="Categories" asp-action="Index">Категории</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link admin-nav-link" asp-area="" asp-controller="Reservations" asp-action="Index">Всички резервации</a>
-                            </li>
-                        }
+                        @await Component.InvokeAsync("NavigationMenu")
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

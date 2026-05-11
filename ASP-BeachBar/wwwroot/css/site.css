@@ -97,6 +97,10 @@ a:hover {
   color: var(--aqua-dark) !important;
 }
 
+.nav-link.active {
+  color: var(--ink) !important;
+}
+
 .admin-nav-link {
   color: var(--coral) !important;
 }
@@ -419,6 +423,372 @@ form:not(#logoutForm) {
   max-width: 820px;
 }
 
+.reservation-scene {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.reservation-hero {
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 340px);
+  align-items: end;
+  gap: 1.25rem;
+  overflow: hidden;
+  padding: clamp(1.35rem, 4vw, 3.25rem);
+  border-radius: 8px;
+  color: #fff;
+  background:
+    linear-gradient(105deg, rgba(11, 43, 49, .88) 0%, rgba(11, 43, 49, .60) 44%, rgba(255, 113, 91, .16) 100%),
+    url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1800&q=80") center/cover;
+  box-shadow: var(--shadow);
+}
+
+.reservation-hero-copy {
+  max-width: 720px;
+}
+
+.reservation-hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(2.3rem, 6vw, 5.2rem);
+  line-height: .98;
+  font-weight: 900;
+}
+
+.reservation-hero p:not(.eyebrow) {
+  max-width: 560px;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, .88);
+  font-size: 1.06rem;
+}
+
+.reservation-notes {
+  display: grid;
+  gap: .65rem;
+  align-self: center;
+}
+
+.reservation-notes span {
+  display: block;
+  padding: .78rem .9rem;
+  border: 1px solid rgba(255, 255, 255, .38);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .16);
+  backdrop-filter: blur(14px);
+  font-weight: 900;
+}
+
+.reservation-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, .74fr) minmax(320px, 1fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.reservation-side,
+.reservation-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .86);
+  box-shadow: var(--shadow);
+}
+
+.reservation-side {
+  padding: 1.25rem;
+}
+
+.reservation-side h2,
+.reservation-card h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  font-weight: 900;
+}
+
+.reservation-steps {
+  display: grid;
+  gap: .85rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reservation-steps li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: .2rem .8rem;
+  padding: .8rem;
+  border: 1px solid rgba(24, 50, 58, .10);
+  border-radius: 8px;
+  background: rgba(231, 251, 247, .62);
+}
+
+.reservation-steps span {
+  grid-row: span 2;
+  width: 2.55rem;
+  height: 2.55rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--coral);
+  font-weight: 900;
+}
+
+.reservation-steps strong {
+  font-weight: 900;
+}
+
+.reservation-steps small {
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.reservation-card {
+  max-width: none;
+  margin: 0;
+  padding: clamp(1.1rem, 3vw, 2rem);
+}
+
+.reservation-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.reservation-badge {
+  width: 4rem;
+  height: 4rem;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--coral), #f0a33a);
+  font-weight: 900;
+  box-shadow: 0 14px 28px rgba(255, 113, 91, .22);
+}
+
+.reservation-card .form-group {
+  margin-bottom: 1rem;
+}
+
+.reservation-card .control-label {
+  margin-bottom: .4rem;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.reservation-card .form-control,
+.reservation-card .form-select {
+  min-height: 3.3rem;
+  border-width: 2px;
+  background-color: rgba(255, 255, 255, .94);
+  font-weight: 700;
+}
+
+.reservation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  align-items: center;
+  margin-top: 1.35rem;
+}
+
+.about-hero {
+  min-height: 68vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 320px);
+  align-items: end;
+  gap: 1rem;
+  overflow: hidden;
+  padding: clamp(1.6rem, 5vw, 4.8rem);
+  border-radius: 8px;
+  color: #fff;
+  background:
+    linear-gradient(92deg, rgba(6, 39, 47, .90) 0%, rgba(6, 39, 47, .62) 48%, rgba(255, 113, 91, .18) 100%),
+    url("https://cdn.pixabay.com/photo/2021/07/10/16/27/sea-6401823_1280.jpg") center/cover;
+  box-shadow: var(--shadow);
+}
+
+.about-hero-copy {
+  max-width: 840px;
+}
+
+.about-hero h1 {
+  margin: 0;
+  max-width: 880px;
+  font-size: clamp(2.25rem, 5.7vw, 5.6rem);
+  line-height: .98;
+  font-weight: 900;
+}
+
+.about-hero p:not(.eyebrow) {
+  max-width: 660px;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, .88);
+  font-size: 1.08rem;
+}
+
+.about-hero-badges {
+  display: grid;
+  gap: .65rem;
+  align-self: center;
+}
+
+.about-hero-badges span {
+  padding: .8rem .95rem;
+  border: 1px solid rgba(255, 255, 255, .36);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(14px);
+  font-weight: 900;
+}
+
+.about-intro,
+.about-cta {
+  display: grid;
+  grid-template-columns: minmax(240px, .8fr) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: end;
+  margin-top: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .72);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.about-intro h2,
+.about-local h2,
+.about-cta h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.2vw, 3rem);
+  line-height: 1.02;
+  font-weight: 900;
+}
+
+.about-intro p,
+.about-local-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.about-mosaic {
+  display: grid;
+  grid-template-columns: 1.25fr .82fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.about-feature {
+  min-height: 220px;
+  display: grid;
+  align-content: end;
+  gap: .55rem;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(231, 251, 247, .74);
+  box-shadow: var(--shadow);
+}
+
+.about-feature-wide {
+  grid-row: span 2;
+  min-height: 460px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(8, 123, 131, .12), rgba(8, 58, 67, .82)),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80") center/cover;
+}
+
+.about-feature span {
+  width: 2.7rem;
+  height: 2.7rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--coral);
+  font-weight: 900;
+}
+
+.about-feature h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.about-feature p {
+  max-width: 520px;
+  margin: 0;
+  color: inherit;
+  opacity: .86;
+  line-height: 1.55;
+}
+
+.about-local {
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+
+.about-local-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.about-local-copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(1.25rem, 3vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .86);
+  box-shadow: var(--shadow);
+}
+
+.about-local-copy p {
+  margin-top: 1rem;
+}
+
+.about-local-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: 1.25rem;
+}
+
+.about-local-facts span {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: .45rem .72rem;
+  color: var(--aqua-dark);
+  background: var(--foam);
+  font-weight: 900;
+}
+
+.about-cta {
+  align-items: center;
+}
+
+.about-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: .75rem;
+}
+
 dt {
   color: var(--muted);
 }
@@ -449,11 +819,62 @@ dd {
   }
 
   .section-head,
-  .details-panel {
+  .details-panel,
+  .reservation-hero,
+  .reservation-layout,
+  .about-hero,
+  .about-intro,
+  .about-mosaic,
+  .about-local,
+  .about-cta {
     display: block;
   }
 
   .section-head .btn {
     margin-top: 1rem;
+  }
+
+  .reservation-hero {
+    min-height: auto;
+  }
+
+  .reservation-notes {
+    margin-top: 1.2rem;
+  }
+
+  .reservation-card {
+    margin-top: 1rem;
+  }
+
+  .reservation-actions .btn,
+  .reservation-actions input {
+    width: 100%;
+  }
+
+  .about-hero {
+    min-height: 62vh;
+  }
+
+  .about-hero-badges,
+  .about-feature,
+  .about-local-copy,
+  .about-cta {
+    margin-top: 1rem;
+  }
+
+  .about-feature-wide {
+    min-height: 360px;
+  }
+
+  .about-local-image img {
+    min-height: 300px;
+  }
+
+  .about-cta-actions {
+    justify-content: stretch;
+  }
+
+  .about-cta-actions .btn {
+    width: 100%;
   }
 }

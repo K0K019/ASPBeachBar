@@ -1,29 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\",
+  "WorkspaceRootPath": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\teachers-10\\desktop\\nikola 12a\\aspbeachbar\\asp-beachbar\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\services\\applicationbuilderextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\services\\applicationbuilderextension.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\teachers-10\\desktop\\nikola 12a\\aspbeachbar\\asp-beachbar\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\teachers-10\\desktop\\nikola 12a\\aspbeachbar\\asp-beachbar\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\teachers-10\\desktop\\nikola 12a\\aspbeachbar\\asp-beachbar\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\teachers-10\\desktop\\nikola 12a\\aspbeachbar\\asp-beachbar\\data\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\data\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\data\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\teachers-10\\desktop\\nikola 12a\\aspbeachbar\\asp-beachbar\\data\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|c:\\users\\1212-2\\desktop\\bam\\aspbeachbar\\asp-beachbar\\data\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0F84C881-DB33-46EC-B57F-8496B562BDBD}|ASP-BeachBar\\ASP-BeachBar.csproj|solutionrelative:asp-beachbar\\data\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,85 +38,101 @@
       "DocumentGroups": [
         {
           "DockedHeight": 285,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Views\\Events\\Index.cshtml",
-              "RelativeDocumentMoniker": "ASP-BeachBar\\Views\\Events\\Index.cshtml",
-              "ToolTip": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Views\\Events\\Index.cshtml*",
-              "RelativeToolTip": "ASP-BeachBar\\Views\\Events\\Index.cshtml*",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-17T11:32:44.705Z",
+              "DocumentIndex": 0,
+              "Title": "ApplicationBuilderExtension.cs",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Services\\ApplicationBuilderExtension.cs",
+              "RelativeDocumentMoniker": "ASP-BeachBar\\Services\\ApplicationBuilderExtension.cs",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Services\\ApplicationBuilderExtension.cs",
+              "RelativeToolTip": "ASP-BeachBar\\Services\\ApplicationBuilderExtension.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAgwGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T07:41:01.493Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Views\\Events\\Index.cshtml",
+              "RelativeDocumentMoniker": "ASP-BeachBar\\Views\\Events\\Index.cshtml",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Views\\Events\\Index.cshtml",
+              "RelativeToolTip": "ASP-BeachBar\\Views\\Events\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T11:32:44.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Views\\Reservations\\Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Views\\Reservations\\Create.cshtml",
               "RelativeDocumentMoniker": "ASP-BeachBar\\Views\\Reservations\\Create.cshtml",
-              "ToolTip": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Views\\Reservations\\Create.cshtml",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Views\\Reservations\\Create.cshtml",
               "RelativeToolTip": "ASP-BeachBar\\Views\\Reservations\\Create.cshtml",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-17T10:57:10.399Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Event.cs",
-              "DocumentMoniker": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Data\\Event.cs",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Data\\Event.cs",
               "RelativeDocumentMoniker": "ASP-BeachBar\\Data\\Event.cs",
-              "ToolTip": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Data\\Event.cs",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Data\\Event.cs",
               "RelativeToolTip": "ASP-BeachBar\\Data\\Event.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T10:56:23.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T10:56:23.209Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Data\\Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Data\\Reservation.cs",
               "RelativeDocumentMoniker": "ASP-BeachBar\\Data\\Reservation.cs",
-              "ToolTip": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Data\\Reservation.cs",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Data\\Reservation.cs",
               "RelativeToolTip": "ASP-BeachBar\\Data\\Reservation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T10:49:25.894Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T10:49:25.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "ASP-BeachBar\\Views\\Products\\Index.cshtml",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "ASP-BeachBar\\Views\\Products\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T10:48:20.445Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Views\\Products\\Index.cshtml",
-              "RelativeDocumentMoniker": "ASP-BeachBar\\Views\\Products\\Index.cshtml",
-              "ToolTip": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Views\\Products\\Index.cshtml",
-              "RelativeToolTip": "ASP-BeachBar\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADoAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-17T10:48:20.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "ReservationsController.cs",
-              "DocumentMoniker": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Controllers\\ReservationsController.cs",
+              "DocumentMoniker": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Controllers\\ReservationsController.cs",
               "RelativeDocumentMoniker": "ASP-BeachBar\\Controllers\\ReservationsController.cs",
-              "ToolTip": "C:\\Users\\TEACHERS-10\\Desktop\\Nikola 12a\\ASPBeachBar\\ASP-BeachBar\\Controllers\\ReservationsController.cs*",
-              "RelativeToolTip": "ASP-BeachBar\\Controllers\\ReservationsController.cs*",
-              "ViewState": "AgIAADcAAAAAAAAAAAAAAEQAAABAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\1212-2\\Desktop\\bam\\ASPBeachBar\\ASP-BeachBar\\Controllers\\ReservationsController.cs",
+              "RelativeToolTip": "ASP-BeachBar\\Controllers\\ReservationsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T10:40:29.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T10:40:29.942Z"
             }
           ]
         }

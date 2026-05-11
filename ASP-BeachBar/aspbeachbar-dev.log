@@ -1,25 +1,15 @@
-Using launch settings from C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar\Properties\launchSettings.json...
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (639ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
-      CREATE DATABASE [ASPBeachBar];
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (78ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
-      IF SERVERPROPERTY('EngineEdition') <> 5
-      BEGIN
-          ALTER DATABASE [ASPBeachBar] SET READ_COMMITTED_SNAPSHOT ON;
-      END;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (92ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT 1
 info: Microsoft.EntityFrameworkCore.Migrations[20411]
       Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (53ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (40ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       DECLARE @result int;
       EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
       SELECT @result
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
       BEGIN
           CREATE TABLE [__EFMigrationsHistory] (
@@ -29,981 +19,181 @@ info: Microsoft.EntityFrameworkCore.Database.Command[20101]
           );
       END;
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT 1
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT [MigrationId], [ProductVersion]
       FROM [__EFMigrationsHistory]
       ORDER BY [MigrationId];
 info: Microsoft.EntityFrameworkCore.Migrations[20402]
-      Applying migration '00000000000000_CreateIdentitySchema'.
+      Applying migration '20260511114500_MoveAboutNavigationLast'.
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetRoles] (
-          [Id] nvarchar(450) NOT NULL,
-          [Name] nvarchar(256) NULL,
-          [NormalizedName] nvarchar(256) NULL,
-          [ConcurrencyStamp] nvarchar(max) NULL,
-          CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetUsers] (
-          [Id] nvarchar(450) NOT NULL,
-          [UserName] nvarchar(256) NULL,
-          [NormalizedUserName] nvarchar(256) NULL,
-          [Email] nvarchar(256) NULL,
-          [NormalizedEmail] nvarchar(256) NULL,
-          [EmailConfirmed] bit NOT NULL,
-          [PasswordHash] nvarchar(max) NULL,
-          [SecurityStamp] nvarchar(max) NULL,
-          [ConcurrencyStamp] nvarchar(max) NULL,
-          [PhoneNumber] nvarchar(max) NULL,
-          [PhoneNumberConfirmed] bit NOT NULL,
-          [TwoFactorEnabled] bit NOT NULL,
-          [LockoutEnd] datetimeoffset NULL,
-          [LockoutEnabled] bit NOT NULL,
-          [AccessFailedCount] int NOT NULL,
-          CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetRoleClaims] (
-          [Id] int NOT NULL IDENTITY,
-          [RoleId] nvarchar(450) NOT NULL,
-          [ClaimType] nvarchar(max) NULL,
-          [ClaimValue] nvarchar(max) NULL,
-          CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
-          CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetUserClaims] (
-          [Id] int NOT NULL IDENTITY,
-          [UserId] nvarchar(450) NOT NULL,
-          [ClaimType] nvarchar(max) NULL,
-          [ClaimValue] nvarchar(max) NULL,
-          CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
-          CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetUserLogins] (
-          [LoginProvider] nvarchar(128) NOT NULL,
-          [ProviderKey] nvarchar(128) NOT NULL,
-          [ProviderDisplayName] nvarchar(max) NULL,
-          [UserId] nvarchar(450) NOT NULL,
-          CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
-          CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetUserRoles] (
-          [UserId] nvarchar(450) NOT NULL,
-          [RoleId] nvarchar(450) NOT NULL,
-          CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
-          CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
-          CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [AspNetUserTokens] (
-          [UserId] nvarchar(450) NOT NULL,
-          [LoginProvider] nvarchar(128) NOT NULL,
-          [Name] nvarchar(128) NOT NULL,
-          [Value] nvarchar(max) NULL,
-          CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
-          CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
-      );
+      Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      UPDATE [NavigationMenuItems]
+      SET [SortOrder] = 110
+      WHERE [Controller] = N'Home' AND [Action] = N'About';
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'00000000000000_CreateIdentitySchema', N'9.0.12');
-info: Microsoft.EntityFrameworkCore.Migrations[20402]
-      Applying migration '20260210105551_Initial'.
+      VALUES (N'20260511114500_MoveAboutNavigationLast', N'9.0.12');
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [AspNetUsers] ADD [FirstName] nvarchar(max) NOT NULL DEFAULT N'';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [AspNetUsers] ADD [LastName] nvarchar(max) NOT NULL DEFAULT N'';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [Drinks] (
-          [Id] int NOT NULL IDENTITY,
-          [Name] nvarchar(max) NOT NULL,
-          [ImageUrl] nvarchar(max) NOT NULL,
-          [isAlcoholic] bit NOT NULL,
-          [CategoryId] nvarchar(max) NOT NULL,
-          [weight] float NOT NULL,
-          [price] float NOT NULL,
-          [RegisterOn] datetime2 NOT NULL,
-          CONSTRAINT [PK_Drinks] PRIMARY KEY ([Id])
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [events] (
-          [Id] int NOT NULL IDENTITY,
-          [Name] nvarchar(max) NOT NULL,
-          [ImageUrl] nvarchar(max) NOT NULL,
-          [Description] nvarchar(max) NOT NULL,
-          [DateReservation] datetime2 NOT NULL,
-          [RegisterOn] datetime2 NOT NULL,
-          CONSTRAINT [PK_events] PRIMARY KEY ([Id])
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [products] (
-          [Id] int NOT NULL IDENTITY,
-          [Name] nvarchar(max) NOT NULL,
-          [CategoryId] nvarchar(max) NOT NULL,
-          [ImageUrl] nvarchar(max) NOT NULL,
-          [Description] nvarchar(max) NOT NULL,
-          [weight] float NOT NULL,
-          [price] float NOT NULL,
-          [RegisterOn] datetime2 NOT NULL,
-          CONSTRAINT [PK_products] PRIMARY KEY ([Id])
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [reservations] (
-          [Id] int NOT NULL IDENTITY,
-          [ClientId] nvarchar(450) NOT NULL,
-          [EventsId] int NOT NULL,
-          [Count] int NOT NULL,
-          [ReservationDate] datetime2 NOT NULL,
-          CONSTRAINT [PK_reservations] PRIMARY KEY ([Id]),
-          CONSTRAINT [FK_reservations_AspNetUsers_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE,
-          CONSTRAINT [FK_reservations_events_EventsId] FOREIGN KEY ([EventsId]) REFERENCES [events] ([Id]) ON DELETE CASCADE
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_reservations_ClientId] ON [reservations] ([ClientId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_reservations_EventsId] ON [reservations] ([EventsId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'20260210105551_Initial', N'9.0.12');
-info: Microsoft.EntityFrameworkCore.Migrations[20402]
-      Applying migration '20260210113018_Second'.
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [reservations] DROP CONSTRAINT [FK_reservations_AspNetUsers_ClientId];
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [reservations] DROP CONSTRAINT [FK_reservations_events_EventsId];
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [reservations] DROP CONSTRAINT [PK_reservations];
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [products] DROP CONSTRAINT [PK_products];
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [events] DROP CONSTRAINT [PK_events];
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (384ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[reservations]', N'Reservations', 'OBJECT';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[products]', N'Products', 'OBJECT';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[events]', N'Events', 'OBJECT';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Reservations].[IX_reservations_EventsId]', N'IX_Reservations_EventsId', 'INDEX';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Reservations].[IX_reservations_ClientId]', N'IX_Reservations_ClientId', 'INDEX';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Products].[weight]', N'Weight', 'COLUMN';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Products].[price]', N'Price', 'COLUMN';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Drinks].[weight]', N'Weight', 'COLUMN';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Drinks].[price]', N'Price', 'COLUMN';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      EXEC sp_rename N'[Drinks].[isAlcoholic]', N'IsAlcoholic', 'COLUMN';
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Reservations] ADD CONSTRAINT [PK_Reservations] PRIMARY KEY ([Id]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Products] ADD CONSTRAINT [PK_Products] PRIMARY KEY ([Id]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Events] ADD CONSTRAINT [PK_Events] PRIMARY KEY ([Id]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Reservations] ADD CONSTRAINT [FK_Reservations_AspNetUsers_ClientId] FOREIGN KEY ([ClientId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Reservations] ADD CONSTRAINT [FK_Reservations_Events_EventsId] FOREIGN KEY ([EventsId]) REFERENCES [Events] ([Id]) ON DELETE CASCADE;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'20260210113018_Second', N'9.0.12');
-info: Microsoft.EntityFrameworkCore.Migrations[20402]
-      Applying migration '20260224114531_third'.
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      DECLARE @var sysname;
-      SELECT @var = [d].[name]
-      FROM [sys].[default_constraints] [d]
-      INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
-      WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Products]') AND [c].[name] = N'CategoryId');
-      IF @var IS NOT NULL EXEC(N'ALTER TABLE [Products] DROP CONSTRAINT [' + @var + '];');
-      ALTER TABLE [Products] ALTER COLUMN [CategoryId] int NOT NULL;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      DECLARE @var1 sysname;
-      SELECT @var1 = [d].[name]
-      FROM [sys].[default_constraints] [d]
-      INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
-      WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Drinks]') AND [c].[name] = N'CategoryId');
-      IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [Drinks] DROP CONSTRAINT [' + @var1 + '];');
-      ALTER TABLE [Drinks] ALTER COLUMN [CategoryId] int NOT NULL;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE TABLE [Categories] (
-          [Id] int NOT NULL IDENTITY,
-          [Name] nvarchar(max) NOT NULL,
-          CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
-      );
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      CREATE INDEX [IX_Drinks_CategoryId] ON [Drinks] ([CategoryId]);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Drinks] ADD CONSTRAINT [FK_Drinks_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      ALTER TABLE [Products] ADD CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'20260224114531_third', N'9.0.12');
-info: Microsoft.EntityFrameworkCore.Migrations[20402]
-      Applying migration '20260310114606_fourth'.
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      DECLARE @var2 sysname;
-      SELECT @var2 = [d].[name]
-      FROM [sys].[default_constraints] [d]
-      INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
-      WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Products]') AND [c].[name] = N'Price');
-      IF @var2 IS NOT NULL EXEC(N'ALTER TABLE [Products] DROP CONSTRAINT [' + @var2 + '];');
-      ALTER TABLE [Products] ALTER COLUMN [Price] decimal(10,2) NOT NULL;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-      VALUES (N'20260310114606_fourth', N'9.0.12');
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       DECLARE @result int;
       EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
       SELECT @result
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (23ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (43ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
       SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
       FROM [AspNetRoles] AS [a]
       WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
-      VALUES (@p0, @p1, @p2, @p3);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (8ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
-      VALUES (@p0, @p1, @p2, @p3);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
-      VALUES (@p0, @p1, @p2, @p3);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-      FROM [AspNetUsers] AS [a]
-      WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-      FROM [AspNetUsers] AS [a]
-      WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
-      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedRoleName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[UserId], [a].[RoleId]
-      FROM [AspNetUserRoles] AS [a]
-      WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedRoleName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-      FROM [AspNetUsers] AS [a]
-      WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p18='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p19='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
-      VALUES (@p0, @p1);
-      UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FirstName] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
-      OUTPUT 1
-      WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[@__categoryName_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Categories] AS [c]
-              WHERE [c].[Name] = @__categoryName_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__categoryName_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Categories] AS [c]
-              WHERE [c].[Name] = @__categoryName_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__categoryName_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Categories] AS [c]
-              WHERE [c].[Name] = @__categoryName_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__categoryName_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Categories] AS [c]
-              WHERE [c].[Name] = @__categoryName_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      MERGE [Categories] USING (
-      VALUES (@p0, 0),
-      (@p1, 1),
-      (@p2, 2),
-      (@p3, 3)) AS i ([Name], _Position) ON 1=0
-      WHEN NOT MATCHED THEN
-      INSERT ([Name])
-      VALUES (i.[Name])
-      OUTPUT INSERTED.[Id], i._Position;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (6ms) [Parameters=[@__categoryNames_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT [c].[Id], [c].[Name]
-      FROM [Categories] AS [c]
-      WHERE [c].[Name] IN (
-          SELECT [c0].[value]
-          FROM OPENJSON(@__categoryNames_0) WITH ([value] nvarchar(max) '$') AS [c0]
-      )
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__product_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Products] AS [p]
-              WHERE [p].[Name] = @__product_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__product_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Products] AS [p]
-              WHERE [p].[Name] = @__product_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__product_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Products] AS [p]
-              WHERE [p].[Name] = @__product_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__product_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Products] AS [p]
-              WHERE [p].[Name] = @__product_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__drink_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Drinks] AS [d]
-              WHERE [d].[Name] = @__drink_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__drink_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Drinks] AS [d]
-              WHERE [d].[Name] = @__drink_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__drink_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Drinks] AS [d]
-              WHERE [d].[Name] = @__drink_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__beachEvent_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Events] AS [e]
-              WHERE [e].[Name] = @__beachEvent_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__beachEvent_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Events] AS [e]
-              WHERE [e].[Name] = @__beachEvent_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__beachEvent_Name_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
-      SELECT CASE
-          WHEN EXISTS (
-              SELECT 1
-              FROM [Events] AS [e]
-              WHERE [e].[Name] = @__beachEvent_Name_0) THEN CAST(1 AS bit)
-          ELSE CAST(0 AS bit)
-      END
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Double), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Double), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (DbType = Double), @p12='?' (DbType = DateTime2), @p13='?' (DbType = Double), @p14='?' (DbType = Int32), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 4000), @p18='?' (DbType = Double), @p19='?' (DbType = DateTime2), @p20='?' (DbType = Double), @p21='?' (DbType = DateTime2), @p22='?' (Size = 4000), @p23='?' (Size = 4000), @p24='?' (Size = 4000), @p25='?' (DbType = DateTime2), @p26='?' (DbType = DateTime2), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = DateTime2), @p31='?' (DbType = DateTime2), @p32='?' (Size = 4000), @p33='?' (Size = 4000), @p34='?' (Size = 4000), @p35='?' (DbType = DateTime2), @p36='?' (DbType = Int32), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (Size = 4000), @p40='?' (Precision = 10) (Scale = 2) (DbType = Decimal), @p41='?' (DbType = DateTime2), @p42='?' (DbType = Double), @p43='?' (DbType = Int32), @p44='?' (Size = 4000), @p45='?' (Size = 4000), @p46='?' (Size = 4000), @p47='?' (Precision = 10) (Scale = 2) (DbType = Decimal), @p48='?' (DbType = DateTime2), @p49='?' (DbType = Double), @p50='?' (DbType = Int32), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (Size = 4000), @p54='?' (Precision = 10) (Scale = 2) (DbType = Decimal), @p55='?' (DbType = DateTime2), @p56='?' (DbType = Double), @p57='?' (DbType = Int32), @p58='?' (Size = 4000), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (Precision = 10) (Scale = 2) (DbType = Decimal), @p62='?' (DbType = DateTime2), @p63='?' (DbType = Double)], CommandType='Text', CommandTimeout='30']
-      SET NOCOUNT ON;
-      MERGE [Drinks] USING (
-      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, 0),
-      (@p7, @p8, @p9, @p10, @p11, @p12, @p13, 1),
-      (@p14, @p15, @p16, @p17, @p18, @p19, @p20, 2)) AS i ([CategoryId], [ImageUrl], [IsAlcoholic], [Name], [Price], [RegisterOn], [Weight], _Position) ON 1=0
-      WHEN NOT MATCHED THEN
-      INSERT ([CategoryId], [ImageUrl], [IsAlcoholic], [Name], [Price], [RegisterOn], [Weight])
-      VALUES (i.[CategoryId], i.[ImageUrl], i.[IsAlcoholic], i.[Name], i.[Price], i.[RegisterOn], i.[Weight])
-      OUTPUT INSERTED.[Id], i._Position;
-      MERGE [Events] USING (
-      VALUES (@p21, @p22, @p23, @p24, @p25, 0),
-      (@p26, @p27, @p28, @p29, @p30, 1),
-      (@p31, @p32, @p33, @p34, @p35, 2)) AS i ([DateReservation], [Description], [ImageUrl], [Name], [RegisterOn], _Position) ON 1=0
-      WHEN NOT MATCHED THEN
-      INSERT ([DateReservation], [Description], [ImageUrl], [Name], [RegisterOn])
-      VALUES (i.[DateReservation], i.[Description], i.[ImageUrl], i.[Name], i.[RegisterOn])
-      OUTPUT INSERTED.[Id], i._Position;
-      MERGE [Products] USING (
-      VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, 0),
-      (@p43, @p44, @p45, @p46, @p47, @p48, @p49, 1),
-      (@p50, @p51, @p52, @p53, @p54, @p55, @p56, 2),
-      (@p57, @p58, @p59, @p60, @p61, @p62, @p63, 3)) AS i ([CategoryId], [Description], [ImageUrl], [Name], [Price], [RegisterOn], [Weight], _Position) ON 1=0
-      WHEN NOT MATCHED THEN
-      INSERT ([CategoryId], [Description], [ImageUrl], [Name], [Price], [RegisterOn], [Weight])
-      VALUES (i.[CategoryId], i.[Description], i.[ImageUrl], i.[Name], i.[Price], i.[RegisterOn], i.[Weight])
-      OUTPUT INSERTED.[Id], i._Position;
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: http://localhost:5079
-info: Microsoft.Hosting.Lifetime[0]
-      Application started. Press Ctrl+C to shut down.
-info: Microsoft.Hosting.Lifetime[0]
-      Hosting environment: Development
-info: Microsoft.Hosting.Lifetime[0]
-      Content root path: C:\Users\nikol\OneDrive\Documents\GitHub\ASPBeachBar\ASP-BeachBar
-warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
-      Failed to determine the https port for redirect.
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[RegisterOn], [p].[Weight], [c].[Id], [c].[Name]
-      FROM [Products] AS [p]
-      INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
-      ORDER BY [c].[Name], [p].[Name]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [d].[Id], [d].[CategoryId], [d].[ImageUrl], [d].[IsAlcoholic], [d].[Name], [d].[Price], [d].[RegisterOn], [d].[Weight], [c].[Id], [c].[Name]
-      FROM [Drinks] AS [d]
-      INNER JOIN [Categories] AS [c] ON [d].[CategoryId] = [c].[Id]
-      ORDER BY [c].[Name], [d].[Name]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-      FROM [AspNetUsers] AS [a]
-      WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
-      FROM [AspNetUserClaims] AS [a]
-      WHERE [a].[UserId] = @__user_Id_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [a0].[Name]
-      FROM [AspNetUserRoles] AS [a]
-      INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
-      WHERE [a].[UserId] = @__userId_0
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
       SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
       FROM [AspNetRoles] AS [a]
       WHERE [a].[NormalizedName] = @__normalizedName_0
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [a].[ClaimType], [a].[ClaimValue]
-      FROM [AspNetRoleClaims] AS [a]
-      WHERE [a].[RoleId] = @__role_Id_0
-info: ASP_BeachBar.Areas.Identity.Pages.Account.LoginModel[0]
-      User logged in.
+      Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+      FROM [AspNetRoles] AS [a]
+      WHERE [a].[NormalizedName] = @__normalizedName_0
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [c].[Id], [c].[Name]
-      FROM [Categories] AS [c]
-      ORDER BY [c].[Name]
+      Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+      FROM [AspNetUsers] AS [a]
+      WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [c].[Id], [c].[Name]
-      FROM [Categories] AS [c]
-      ORDER BY [c].[Name]
+      Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+      FROM [AspNetRoles] AS [a]
+      WHERE [a].[NormalizedName] = @__normalizedRoleName_0
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [c].[Id], [c].[Name]
-      FROM [Categories] AS [c]
-      ORDER BY [c].[Name]
+      Executed DbCommand (4ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(1) [a].[UserId], [a].[RoleId]
+      FROM [AspNetUserRoles] AS [a]
+      WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:44320
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\1212-2\Desktop\bam\ASPBeachBar\ASP-BeachBar
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      ORDER BY [r].[ReservationDate] DESC
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[RegisterOn], [p].[Weight], [c].[Id], [c].[Name]
       FROM [Products] AS [p]
       INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
       ORDER BY [c].[Name], [p].[Name]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      ORDER BY [e].[DateReservation]
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[RegisterOn], [p].[Weight], [c].[Id], [c].[Name]
-      FROM [Products] AS [p]
-      INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
-      ORDER BY [c].[Name], [p].[Name]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT [d].[Id], [d].[CategoryId], [d].[ImageUrl], [d].[IsAlcoholic], [d].[Name], [d].[Price], [d].[RegisterOn], [d].[Weight], [c].[Id], [c].[Name]
       FROM [Drinks] AS [d]
       INNER JOIN [Categories] AS [c] ON [d].[CategoryId] = [c].[Id]
       ORDER BY [c].[Name], [d].[Name]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
       FROM [Events] AS [e]
       WHERE [e].[DateReservation] >= GETDATE()
       ORDER BY [e].[DateReservation]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
+      FROM [Events] AS [e]
+      WHERE [e].[DateReservation] >= GETDATE()
+      ORDER BY [e].[DateReservation]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [d].[Id], [d].[CategoryId], [d].[ImageUrl], [d].[IsAlcoholic], [d].[Name], [d].[Price], [d].[RegisterOn], [d].[Weight], [c].[Id], [c].[Name]
+      FROM [Drinks] AS [d]
+      INNER JOIN [Categories] AS [c] ON [d].[CategoryId] = [c].[Id]
+      ORDER BY [c].[Name], [d].[Name]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
       SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[RegisterOn], [p].[Weight], [c].[Id], [c].[Name]
       FROM [Products] AS [p]
       INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
       ORDER BY [c].[Name], [p].[Name]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]
 info: Microsoft.EntityFrameworkCore.Database.Command[20101]
       Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[RegisterOn], [p].[Weight], [c].[Id], [c].[Name]
-      FROM [Products] AS [p]
-      INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
-      ORDER BY [c].[Name], [p].[Name]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [p].[Id], [p].[CategoryId], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[RegisterOn], [p].[Weight], [c].[Id], [c].[Name]
-      FROM [Products] AS [p]
-      INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
-      ORDER BY [c].[Name], [p].[Name]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-      FROM [AspNetUsers] AS [a]
-      WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 256), @p10='?' (Size = 256), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
-      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
-info: ASP_BeachBar.Areas.Identity.Pages.Account.RegisterModel[0]
-      User created a new account with password.
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedRoleName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[UserId], [a].[RoleId]
-      FROM [AspNetUserRoles] AS [a]
-      WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedRoleName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
-      FROM [AspNetUsers] AS [a]
-      WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p18='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p19='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SET NOCOUNT ON;
-      INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
-      VALUES (@p0, @p1);
-      UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FirstName] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
-      OUTPUT 1
-      WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
-      FROM [AspNetUserClaims] AS [a]
-      WHERE [a].[UserId] = @__user_Id_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [a0].[Name]
-      FROM [AspNetUserRoles] AS [a]
-      INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
-      WHERE [a].[UserId] = @__userId_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
-      FROM [AspNetRoles] AS [a]
-      WHERE [a].[NormalizedName] = @__normalizedName_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [a].[ClaimType], [a].[ClaimValue]
-      FROM [AspNetRoleClaims] AS [a]
-      WHERE [a].[RoleId] = @__role_Id_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= @__now_0
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[Id] = @__p_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [Reservations] ([ClientId], [Count], [EventsId], [ReservationDate])
-      OUTPUT INSERTED.[Id]
-      VALUES (@p0, @p1, @p2, @p3);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0
-      ORDER BY [r].[ReservationDate] DESC
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450), @__id_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0 AND [r].[Id] = @__id_1
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450), @__id_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0 AND [r].[Id] = @__id_1
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate]
-      FROM [Reservations] AS [r]
-      WHERE [r].[Id] = @__p_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      DELETE FROM [Reservations]
-      OUTPUT 1
-      WHERE [Id] = @p0;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0
-      ORDER BY [r].[ReservationDate] DESC
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= @__now_0
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE()
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= GETDATE() AND [e].[Id] = @__id_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= @__now_0
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[Id] = @__p_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [Reservations] ([ClientId], [Count], [EventsId], [ReservationDate])
-      OUTPUT INSERTED.[Id]
-      VALUES (@p0, @p1, @p2, @p3);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0
-      ORDER BY [r].[ReservationDate] DESC
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__now_0='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SELECT [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[DateReservation] >= @__now_0
-      ORDER BY [e].[DateReservation]
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Events] AS [e]
-      WHERE [e].[Id] = @__p_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      INSERT INTO [Reservations] ([ClientId], [Count], [EventsId], [ReservationDate])
-      OUTPUT INSERTED.[Id]
-      VALUES (@p0, @p1, @p2, @p3);
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0
-      ORDER BY [r].[ReservationDate] DESC
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450), @__id_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0 AND [r].[Id] = @__id_1
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate]
-      FROM [Reservations] AS [r]
-      WHERE [r].[Id] = @__p_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      DELETE FROM [Reservations]
-      OUTPUT 1
-      WHERE [Id] = @p0;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0
-      ORDER BY [r].[ReservationDate] DESC
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450), @__id_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0 AND [r].[Id] = @__id_1
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SELECT TOP(1) [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate]
-      FROM [Reservations] AS [r]
-      WHERE [r].[Id] = @__p_0
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
-      SET IMPLICIT_TRANSACTIONS OFF;
-      SET NOCOUNT ON;
-      DELETE FROM [Reservations]
-      OUTPUT 1
-      WHERE [Id] = @p0;
-info: Microsoft.EntityFrameworkCore.Database.Command[20101]
-      Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
-      SELECT [r].[Id], [r].[ClientId], [r].[Count], [r].[EventsId], [r].[ReservationDate], [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [e].[Id], [e].[DateReservation], [e].[Description], [e].[ImageUrl], [e].[Name], [e].[RegisterOn]
-      FROM [Reservations] AS [r]
-      INNER JOIN [AspNetUsers] AS [a] ON [r].[ClientId] = [a].[Id]
-      INNER JOIN [Events] AS [e] ON [r].[EventsId] = [e].[Id]
-      WHERE [r].[ClientId] = @__userId_0
-      ORDER BY [r].[ReservationDate] DESC
+      SELECT [n].[Id], [n].[Action], [n].[Area], [n].[Controller], [n].[IsActive], [n].[RequiredRole], [n].[SortOrder], [n].[Text]
+      FROM [NavigationMenuItems] AS [n]
+      WHERE [n].[IsActive] = CAST(1 AS bit)
+      ORDER BY [n].[SortOrder], [n].[Text]

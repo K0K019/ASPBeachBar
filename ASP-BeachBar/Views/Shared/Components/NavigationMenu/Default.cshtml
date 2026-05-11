@@ -1,0 +1,14 @@
+@model IEnumerable<ASP_BeachBar.Data.NavigationMenuItem>
+
+@foreach (var item in Model)
+{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    var isActive = string.Equals(currentController, item.Controller, StringComparison.OrdinalIgnoreCase)
+        && string.Equals(currentAction, item.Action, StringComparison.OrdinalIgnoreCase);
+    var linkClass = $"nav-link {(item.RequiredRole == "Admin" ? "admin-nav-link" : string.Empty)} {(isActive ? "active" : string.Empty)}";
+
+    <li class="nav-item">
+        <a class="@linkClass" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">@item.Text</a>
+    </li>
+}
