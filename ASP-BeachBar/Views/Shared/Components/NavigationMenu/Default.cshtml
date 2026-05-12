@@ -1,14 +1,42 @@
 @model IEnumerable<ASP_BeachBar.Data.NavigationMenuItem>
 
-@foreach (var item in Model)
-{
+@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    var regularItems = Model.Where(item => item.RequiredRole != "Admin").ToList();
+    var adminItems = Model.Where(item => item.RequiredRole == "Admin").ToList();
+    var isAdminActive = adminItems.Any(item =>
+        string.Equals(currentController, item.Controller, StringComparison.OrdinalIgnoreCase)
+        && string.Equals(currentAction, item.Action, StringComparison.OrdinalIgnoreCase));
+}
+
+@foreach (var item in regularItems)
+{
     var isActive = string.Equals(currentController, item.Controller, StringComparison.OrdinalIgnoreCase)
         && string.Equals(currentAction, item.Action, StringComparison.OrdinalIgnoreCase);
-    var linkClass = $"nav-link {(item.RequiredRole == "Admin" ? "admin-nav-link" : string.Empty)} {(isActive ? "active" : string.Empty)}";
+    var linkClass = $"nav-link {(isActive ? "active" : string.Empty)}";
 
     <li class="nav-item">
         <a class="@linkClass" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">@item.Text</a>
+    </li>
+}
+
+@if (adminItems.Any())
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link admin-nav-link dropdown-toggle @(isAdminActive ? "active" : string.Empty)" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Админ
+        </a>
+        <ul class="dropdown-menu admin-nav-menu">
+            @foreach (var item in adminItems)
+            {
+                var isActive = string.Equals(currentController, item.Controller, StringComparison.OrdinalIgnoreCase)
+                    && string.Equals(currentAction, item.Action, StringComparison.OrdinalIgnoreCase);
+
+                <li>
+                    <a class="dropdown-item @(isActive ? "active" : string.Empty)" asp-area="@item.Area" asp-controller="@item.Controller" asp-action="@item.Action">@item.Text</a>
+                </li>
+            }
+        </ul>
     </li>
 }

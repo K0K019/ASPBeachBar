@@ -289,11 +289,11 @@ namespace ASP_BeachBar.Services
             await UpsertNavigationItemAsync(context, "За нас", "Home", "About", 60);
             await UpsertNavigationItemAsync(context, "Категории", "Categories", "Index", 90, "Admin");
             await UpsertNavigationItemAsync(context, "Всички резервации", "Reservations", "Index", 100, "Admin");
-            await UpsertNavigationItemAsync(context, "Справка по събитие", "Reservations", "ByEvent", 110, "Admin");
 
             await DeactivateNavigationItemAsync(context, "Drinks", "AlcoholicCocktails");
             await DeactivateNavigationItemAsync(context, "Drinks", "NonAlcoholicCocktails");
             await DeactivateNavigationItemAsync(context, "Home", "Contacts");
+            await DeactivateNavigationItemAsync(context, "Reservations", "ByEvent");
 
             await context.SaveChangesAsync();
         }

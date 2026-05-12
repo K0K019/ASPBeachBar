@@ -88,9 +88,18 @@ a:hover {
   box-shadow: 0 10px 24px rgba(19, 166, 166, .25);
 }
 
+.beach-nav .navbar-collapse {
+  gap: .75rem;
+}
+
+.beach-nav .navbar-nav {
+  align-items: center;
+}
+
 .nav-link {
   color: rgba(24, 50, 58, .72) !important;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -103,6 +112,29 @@ a:hover {
 
 .admin-nav-link {
   color: var(--coral) !important;
+}
+
+.admin-nav-menu {
+  border: 1px solid rgba(24, 50, 58, .12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 14px 34px rgba(20, 78, 88, .14);
+}
+
+.admin-nav-menu .dropdown-item {
+  color: rgba(24, 50, 58, .78);
+  font-weight: 700;
+}
+
+.admin-nav-menu .dropdown-item:hover,
+.admin-nav-menu .dropdown-item:focus {
+  color: var(--aqua-dark);
+  background: rgba(19, 166, 166, .08);
+}
+
+.admin-nav-menu .dropdown-item.active {
+  color: #fff;
+  background: var(--coral);
 }
 
 .page-wrap {
